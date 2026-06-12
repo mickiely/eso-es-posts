@@ -127,6 +127,9 @@ async function generate() {
   // Merge with existing and save
   const merged = [...existing, ...newPosts];
   fs.writeFileSync(postsPath, JSON.stringify(merged, null, 2));
+  // Also write posts.js so index.html works on file:// and Netlify without a server
+  const jsPath = path.join(__dirname, 'data/posts.js');
+  fs.writeFileSync(jsPath, 'window.POSTS_DATA = ' + JSON.stringify(merged, null, 2) + ';');
 
   console.log(`✓ Generated ${newPosts.length} new posts`);
   console.log(`✓ Total posts in data/posts.json: ${merged.length}`);

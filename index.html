@@ -261,6 +261,7 @@ body.pm .card:hover .cv-overlay{opacity:1}
 
 <div id="calendarView"></div>
 
+<script src="data/posts.js"></script>
 <script>
 const LAYOUTS = ['a','b','c','d','e'];
 const ICONS = {'Ripple':'≋','Gotcha':'◎','Frother':'◈','WSUP':'▣','Brand':'◆','All Products':'⊕'};
@@ -492,24 +493,59 @@ function download(filename, content, type) {
   URL.revokeObjectURL(a.href);
 }
 
-/* ── LOAD POSTS ── */
-async function loadPosts() {
-  try {
-    const res = await fetch('data/posts.json');
-    if (!res.ok) throw new Error('fetch failed');
-    allPosts = await res.json();
-  } catch {
-    document.getElementById('statusLabel').textContent = 'Error loading posts.json';
-    return;
-  }
+/* ── LOAD POSTS ──
+   Primary: window.POSTS_DATA set by <script src="data/posts.js">
+   Works on file://, Netlify, and any local server.
+   Fallback: inline demo data so the page is never blank.
+*/
+function initPosts(posts, source) {
+  allPosts = posts;
+  const label = source === 'demo' ? 'Demo Content' : 'All Ready';
+  const sub = source === 'demo'
+    ? `Demo content loaded — run node generate.js to create real posts`
+    : `${allPosts.length} Posts Ready // esoes.com.au // Instagram + LinkedIn`;
   document.getElementById('count').textContent = allPosts.length;
-  document.getElementById('headerSub').textContent = `${allPosts.length} Posts Ready // esoes.com.au // Instagram + LinkedIn`;
-  document.getElementById('statusLabel').textContent = 'All Ready';
+  document.getElementById('headerSub').textContent = sub;
+  document.getElementById('statusLabel').textContent = label;
   document.querySelector('.filter-btn[data-filter="all"]').textContent = `All (${allPosts.length})`;
+  if (source === 'demo') {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'background:#1a1a1a;color:#666;text-align:center;padding:8px;font-size:10px;letter-spacing:1px;border-bottom:1px solid #333';
+    banner.textContent = '⚠ DEMO CONTENT — run: node generate.js to create real posts';
+    document.querySelector('.gen-banner').after(banner);
+  }
   renderCards(allPosts);
 }
 
-loadPosts();
+const DEMO_POSTS = [
+  {num:1,date:"2026-07-01",product:"All Products",category:"Brand Story",title:"Launch Post",
+   hook:"Most small businesses don't have a marketing problem. They have leaks.",
+   headline:"STOP THE LEAK.",subtext:"Ripple. Gotcha. Frother. WSUP.",cta:'DM "LEAK"',
+   caption:`Eso Es is live.\n\nMost small businesses don't have a marketing problem.\n\nThey have leaks.\n\nRipple gets them calling.\nGotcha catches the call.\nFrother keeps them coming back.\nWSUP gets the business out of the owner's head.\n\nDM "LEAK" to find your first leak.`,
+   graphic_concept:"Bold retro-comic graphic. Cream, black type, yellow CTA. Four product icons leaking into a drain.",
+   image_prompt:"Bold retro-comic social graphic for Eso Es. Cream background, heavy black typography, yellow CTA button. Main text: STOP THE LEAK. Subtext: Ripple. Gotcha. Frother. WSUP.",
+   hashtags:"#esoes #smallbusiness #localbusiness #australianbusiness #leakplugged"},
+  {num:2,date:"2026-07-02",product:"Gotcha",category:"Pain Point",title:"Missed Call",
+   hook:"Missed calls are not harmless. They are warm leads walking out the back door.",
+   headline:"MISSED CALL? GOTCHA.",subtext:"Instant SMS reply. Lead saved.",cta:'DM "GOTCHA"',
+   caption:`Missed calls are not harmless.\n\nThey are warm leads walking out the back door.\n\nGotcha fixes that with an instant missed-call text-back.\n\nDM "GOTCHA" if missed calls are costing you money.`,
+   graphic_concept:"Red alert style. Phone screen showing missed call → instant SMS reply.",
+   image_prompt:"Gotcha social graphic. Red alert style, cream background. Phone notification with missed call, then instant SMS reply panel. Main text: MISSED CALL? GOTCHA.",
+   hashtags:"#gotcha #esoes #missedcalls #leadrecovery #smallbusiness #localbusiness #tradie"},
+  {num:3,date:"2026-07-03",product:"Brand",category:"Pain Point",title:"Demo Post",
+   hook:"Run node generate.js to generate 30 real posts using the Claude API.",
+   headline:"DEMO CONTENT.",subtext:"Run generate.js to fill this.",cta:'node generate.js',
+   caption:`This is demo content.\n\nRun node generate.js to generate real Eso Es posts using the Claude API.\n\nRequires ANTHROPIC_API_KEY in .env`,
+   graphic_concept:"Terminal graphic. Dark background, green text. Instructions to run generator.",
+   image_prompt:"Terminal-style graphic. Dark background, green text. Main text: DEMO CONTENT. Subtext: Run generate.js",
+   hashtags:"#esoes #demo #generate"}
+];
+
+if (window.POSTS_DATA && window.POSTS_DATA.length > 0) {
+  initPosts(window.POSTS_DATA, 'live');
+} else {
+  initPosts(DEMO_POSTS, 'demo');
+}
 </script>
 </body>
 </html>
