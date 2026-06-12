@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eso Es — 30 Post Content Plan</title>
+<title>Eso Es — Content Engine</title>
 <style>
 :root {
   --cream: #F5F0E8;
@@ -23,13 +23,18 @@ body{background:var(--cream);font-family:'Courier New',monospace;color:var(--bla
 header{background:var(--black);color:var(--cream);padding:18px 28px;border-bottom:5px solid var(--yellow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100}
 .hd-left h1{font-size:20px;font-weight:900;letter-spacing:3px;text-transform:uppercase;line-height:1}
 .hd-left span{font-size:10px;color:#666;letter-spacing:1px;margin-top:3px;display:block}
-.hd-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hd-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hd-btn{border:2px solid #444;padding:7px 13px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;background:transparent;color:#aaa}
+.hd-btn:hover{border-color:var(--yellow);color:var(--yellow)}
+.hd-btn.yellow{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
+.hd-btn.yellow:hover{background:#e0b800;border-color:#e0b800}
+.hd-btn.red{background:var(--red);color:#fff;border-color:var(--red)}
 .present-btn{background:var(--yellow);color:var(--black);border:2px solid var(--yellow);padding:8px 16px;font-family:'Courier New',monospace;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .15s}
 .present-btn:hover{background:transparent;color:var(--yellow)}
 body.pm .present-btn{background:var(--red);color:#fff;border-color:var(--red)}
 
 /* ── CONTROLS ── */
-.controls{background:#111;padding:12px 28px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #2a2a2a;position:sticky;top:65px;z-index:99}
+.controls{background:#111;padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #2a2a2a;position:sticky;top:65px;z-index:99}
 .filter-btn{background:transparent;color:#777;border:2px solid #333;padding:5px 13px;font-family:'Courier New',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .15s}
 .filter-btn:hover{border-color:var(--yellow);color:var(--yellow)}
 .filter-btn.active{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
@@ -37,6 +42,9 @@ body.pm .present-btn{background:var(--red);color:#fff;border-color:var(--red)}
 .filter-btn.gotcha.active{background:var(--red);border-color:var(--red);color:#fff}
 .filter-btn.frother.active{background:var(--green);border-color:var(--green);color:var(--black)}
 .filter-btn.wsup.active{background:var(--purple);border-color:var(--purple);color:#fff}
+.ctrl-sep{width:1px;height:20px;background:#333;flex-shrink:0}
+.view-btn{background:transparent;color:#555;border:2px solid #2a2a2a;padding:5px 11px;font-family:'Courier New',monospace;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .15s;text-transform:uppercase}
+.view-btn:hover,.view-btn.active{border-color:var(--yellow);color:var(--yellow)}
 
 /* ── STATS BAR ── */
 .stats-bar{background:#1a1a1a;color:#555;padding:6px 28px;font-size:10px;letter-spacing:1px;display:flex;gap:20px;flex-wrap:wrap;border-bottom:1px solid #222}
@@ -66,35 +74,24 @@ body.pm .card-visual{border-bottom:none}
 body.pm .card-body{display:none}
 body.pm .card{cursor:pointer}
 
-/* Layers */
 .cv-bg{position:absolute;inset:0;z-index:0}
 .cv-dots{position:absolute;inset:0;z-index:2;pointer-events:none;background-image:radial-gradient(circle,rgba(0,0,0,.13) 1.5px,transparent 1.5px);background-size:10px 10px}
 .cv-stripes{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.055;background-image:repeating-linear-gradient(-45deg,var(--black) 0,var(--black) 10px,transparent 10px,transparent 22px)}
 .cv-scanlines{position:absolute;inset:0;z-index:3;pointer-events:none;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(0,0,0,.07) 3px,rgba(0,0,0,.07) 4px)}
 .cv-slash{position:absolute;width:170%;height:90px;left:-35%;z-index:1;background:var(--ac);opacity:.2;transform-origin:center center}
 .cv-inner-frame{position:absolute;inset:10px;border:1px solid currentColor;opacity:.12;z-index:3;pointer-events:none}
-
-/* Stamp + Sticker */
 .cv-stamp{position:absolute;top:13px;left:13px;transform:rotate(-11deg);z-index:10;font-size:9px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:2px 7px;border:2px solid currentColor;opacity:.6;line-height:1.5}
 .cv-sticker{position:absolute;top:15px;right:-3px;transform:rotate(2.5deg);z-index:10;font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:5px 16px 5px 11px;border:2px solid var(--black);box-shadow:3px 3px 0 rgba(0,0,0,.25);white-space:nowrap;background:var(--ac);color:var(--at)}
-
-/* Main */
 .cv-main{position:absolute;inset:0;bottom:44px;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:52px 22px 10px;text-align:center}
 .cv-headline{font-size:30px;font-weight:900;line-height:1.0;text-transform:uppercase;letter-spacing:.5px;word-break:break-word}
 .cv-subtext{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-top:13px;opacity:.72;line-height:1.6}
-
-/* CTA bar */
 .cv-cta{position:absolute;bottom:0;left:0;right:0;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:10;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border-top:2px solid rgba(0,0,0,.18)}
 .cv-cta-arrow{font-size:18px;line-height:1}
-
-/* Corner icon */
 .cv-icon{position:absolute;bottom:54px;right:14px;font-size:40px;opacity:.07;z-index:2;transform:rotate(12deg);line-height:1;pointer-events:none}
-
-/* Present-mode hover overlay */
 .cv-overlay{position:absolute;inset:0;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;z-index:20;pointer-events:none}
 body.pm .card:hover .cv-overlay{opacity:1}
 
-/* ── LAYOUT A: MANIFESTO (solid accent bg) ── */
+/* ── LAYOUTS ── */
 .card[data-layout="a"] .cv-bg{background:var(--ac)}
 .card[data-layout="a"] .cv-stripes{opacity:.05;background-image:repeating-linear-gradient(-45deg,#fff 0,#fff 10px,transparent 10px,transparent 22px)}
 .card[data-layout="a"] .cv-dots{background-image:radial-gradient(circle,rgba(0,0,0,.1) 1.5px,transparent 1.5px)}
@@ -106,7 +103,6 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .card[data-layout="a"] .cv-sticker{background:var(--black);color:var(--yellow);border-color:rgba(0,0,0,.4);box-shadow:3px 3px 0 rgba(0,0,0,.4)}
 .card[data-layout="a"] .cv-inner-frame{border-color:var(--at)}
 
-/* ── LAYOUT B: BULLETIN (cream + color top band) ── */
 .card[data-layout="b"] .cv-bg{background:var(--cream)}
 .card[data-layout="b"] .cv-slash{top:0;height:110px;opacity:1;transform:none}
 .card[data-layout="b"] .cv-stripes{display:none}
@@ -117,7 +113,6 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .card[data-layout="b"] .cv-dots{background-image:radial-gradient(circle,rgba(0,0,0,.09) 1.5px,transparent 1.5px)}
 .card[data-layout="b"] .cv-inner-frame{border-color:var(--black)}
 
-/* ── LAYOUT C: SLASH (off-white, dramatic diagonal) ── */
 .card[data-layout="c"] .cv-bg{background:#F6F3EB}
 .card[data-layout="c"] .cv-slash{top:50%;height:120px;opacity:.22;transform:translateY(-50%) rotate(-9deg)}
 .card[data-layout="c"] .cv-stripes{display:none}
@@ -128,7 +123,6 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .card[data-layout="c"] .cv-sticker{background:var(--ac);color:var(--at)}
 .card[data-layout="c"] .cv-inner-frame{border-color:var(--black)}
 
-/* ── LAYOUT D: TERMINAL (dark bg, glow headline) ── */
 .card[data-layout="d"] .cv-bg{background:#0D0D0D}
 .card[data-layout="d"] .cv-dots{background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);background-size:8px 8px}
 .card[data-layout="d"] .cv-stripes{display:none}
@@ -141,7 +135,6 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .card[data-layout="d"] .cv-inner-frame{border-color:var(--ac);opacity:.15}
 .card[data-layout="d"] .cv-icon{opacity:.05;color:var(--ac)}
 
-/* ── LAYOUT E: EDITORIAL (cream, big headline, yellow CTA) ── */
 .card[data-layout="e"] .cv-bg{background:var(--cream)}
 .card[data-layout="e"] .cv-slash{top:85%;height:60px;opacity:.18;transform:rotate(-4deg)}
 .card[data-layout="e"] .cv-headline{color:var(--black);font-size:32px}
@@ -153,11 +146,17 @@ body.pm .card:hover .cv-overlay{opacity:1}
 
 /* ── CARD BODY ── */
 .card-body{padding:16px 18px 18px;background:var(--off-white)}
-.card-title{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-title{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .card-title .num{background:var(--black);color:var(--yellow);font-size:10px;padding:2px 7px;flex-shrink:0}
-.caption-box{background:#fff;border:2px solid #e0dcd4;border-left:4px solid var(--ac,var(--black));padding:10px 12px;font-size:11px;line-height:1.75;white-space:pre-line;max-height:150px;overflow-y:auto;color:#444;margin-bottom:12px}
+.card-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.meta-chip{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border:1.5px solid;opacity:.75}
+.meta-date{border-color:#bbb;color:#666}
+.meta-cat{border-color:var(--ac,#888);color:var(--ac,#888)}
+.hook-box{background:#fff7e6;border:2px solid #e8d8b0;border-left:4px solid var(--ac,var(--black));padding:8px 12px;font-size:10px;font-style:italic;line-height:1.65;color:#5a4a2a;margin-bottom:8px;font-weight:700}
+.caption-box{background:#fff;border:2px solid #e0dcd4;border-left:4px solid var(--ac,var(--black));padding:10px 12px;font-size:11px;line-height:1.75;white-space:pre-line;max-height:140px;overflow-y:auto;color:#444;margin-bottom:8px}
 .caption-box::-webkit-scrollbar{width:3px}
 .caption-box::-webkit-scrollbar-thumb{background:#ccc}
+.hashtag-line{font-size:9px;color:#999;font-weight:700;margin-bottom:10px;letter-spacing:.5px;line-height:1.5;word-break:break-word}
 .prompt-toggle{background:none;border:none;font-family:'Courier New',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;color:#999;margin-bottom:8px;padding:0;display:flex;align-items:center;gap:5px;transition:color .15s}
 .prompt-toggle:hover{color:var(--black)}
 .prompt-box{display:none;background:#0D0D0D;color:#00FF88;padding:10px 12px;font-size:10px;line-height:1.65;border:2px solid #00FF88;margin-bottom:10px}
@@ -170,13 +169,34 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .copy-prompt-btn:hover{background:var(--black);color:var(--cream)}
 .copy-prompt-btn.copied{background:var(--green);color:var(--black);border-color:var(--green)}
 
+/* ── CALENDAR VIEW ── */
+#calendarView{display:none;padding:28px}
+#calendarView.visible{display:block}
+.cal-month{margin-bottom:40px}
+.cal-month-title{font-size:14px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;padding:10px 16px;background:var(--black);color:var(--yellow);display:inline-block}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-day-label{text-align:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 2px;color:var(--grey)}
+.cal-day{min-height:90px;border:2px solid #ddd;padding:6px;background:#fff;position:relative;font-size:9px}
+.cal-day.empty{background:transparent;border-color:transparent}
+.cal-day.today{border-color:var(--yellow)}
+.cal-day-num{font-weight:900;font-size:10px;color:#999;margin-bottom:4px}
+.cal-post{font-size:8px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 5px;margin-bottom:3px;border:1.5px solid;cursor:pointer;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-post:hover{opacity:.8}
+
+/* ── GENERATE PANEL ── */
+.gen-banner{background:#111;border:2px solid #333;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin:0}
+.gen-banner-text{font-size:11px;color:#666;letter-spacing:1px}
+.gen-banner-text strong{color:var(--yellow);font-size:12px}
+.gen-btn{background:var(--purple);color:#fff;border:2px solid var(--purple);padding:9px 18px;font-family:'Courier New',monospace;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.gen-btn:hover{background:transparent;color:var(--purple)}
+
 /* ── MOBILE ── */
 @media(max-width:640px){
   header{padding:14px 16px;top:0}
-  .hd-left h1{font-size:16px}
+  .hd-left h1{font-size:15px;letter-spacing:2px}
   .hd-left span{display:none}
-  .controls{top:58px;padding:10px 14px;gap:6px}
-  .filter-btn{font-size:10px;padding:4px 9px}
+  .controls{top:54px;padding:8px 14px;gap:5px}
+  .filter-btn{font-size:9px;padding:4px 8px}
   .stats-bar{display:none}
   .grid{grid-template-columns:1fr;padding:14px;gap:18px}
   body.pm .grid{grid-template-columns:1fr 1fr;padding:10px;gap:10px}
@@ -184,7 +204,9 @@ body.pm .card:hover .cv-overlay{opacity:1}
   .cv-headline{font-size:22px!important}
   .cv-subtext{font-size:9px}
   .cv-sticker{font-size:9px;padding:4px 12px 4px 8px}
-  .present-btn{font-size:10px;padding:6px 12px}
+  .hd-btn,.present-btn{font-size:10px;padding:6px 10px}
+  .cal-grid{grid-template-columns:repeat(7,1fr)}
+  .cal-day{min-height:60px}
 }
 @media(max-width:380px){
   body.pm .grid{grid-template-columns:1fr}
@@ -196,169 +218,77 @@ body.pm .card:hover .cv-overlay{opacity:1}
 
 <header>
   <div class="hd-left">
-    <h1>Eso Es — Content Plan</h1>
-    <span>30 Posts Ready // esoes.com.au // Instagram + LinkedIn</span>
+    <h1>Eso Es — Content Engine</h1>
+    <span id="headerSub">Loading posts… // esoes.com.au</span>
   </div>
   <div class="hd-right">
-    <button class="present-btn" id="presentBtn" onclick="togglePresent()">◼ Presentation Mode</button>
+    <button class="hd-btn" onclick="exportCSV()">↓ Export CSV</button>
+    <button class="hd-btn" onclick="exportCanva()">↓ Canva Prompts</button>
+    <button class="present-btn" id="presentBtn" onclick="togglePresent()">◼ Present</button>
   </div>
 </header>
 
 <div class="controls">
-  <button class="filter-btn active" data-filter="all">All (30)</button>
+  <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn ripple" data-filter="Ripple">Ripple</button>
   <button class="filter-btn gotcha" data-filter="Gotcha">Gotcha</button>
   <button class="filter-btn frother" data-filter="Frother">Frother</button>
   <button class="filter-btn wsup" data-filter="WSUP">WSUP</button>
   <button class="filter-btn" data-filter="Brand">Brand</button>
-  <button class="filter-btn" data-filter="All Products">Multi-Product</button>
+  <button class="filter-btn" data-filter="All Products">Multi</button>
+  <div class="ctrl-sep"></div>
+  <button class="view-btn active" id="viewGrid" onclick="setView('grid')">Grid</button>
+  <button class="view-btn" id="viewCal" onclick="setView('calendar')">Calendar</button>
 </div>
 
 <div class="stats-bar">
-  <div>Showing: <strong id="count">30</strong> posts</div>
+  <div>Posts: <strong id="count">—</strong></div>
   <div>Platform: <strong>Instagram + LinkedIn</strong></div>
   <div>Format: <strong>Square / Feed Graphic</strong></div>
-  <div>Status: <strong>All Ready</strong></div>
+  <div>Status: <strong id="statusLabel">Loading…</strong></div>
+</div>
+
+<div class="gen-banner">
+  <div class="gen-banner-text">
+    <strong>GENERATE NEW POSTS</strong> &nbsp;—&nbsp; Run <code>node generate.js</code> to create fresh content via Claude API
+  </div>
+  <button class="gen-btn" onclick="alert('Run: node generate.js\n\nRequires ANTHROPIC_API_KEY in .env')">⚡ How to Generate</button>
 </div>
 
 <div class="grid" id="grid">
   <div class="no-results" id="noResults">No posts match this filter.</div>
 </div>
 
+<div id="calendarView"></div>
+
 <script>
 const LAYOUTS = ['a','b','c','d','e'];
 const ICONS = {'Ripple':'≋','Gotcha':'◎','Frother':'◈','WSUP':'▣','Brand':'◆','All Products':'⊕'};
+const PROD_COLORS = {
+  'Ripple':'#00B4D8','Gotcha':'#E63946','Frother':'#2DC653',
+  'WSUP':'#7B2FBE','Brand':'#F5C800','All Products':'#1A1A1A'
+};
+const PROD_TEXT = {'Gotcha':'#fff','WSUP':'#fff','All Products':'#F5C800'};
 
-function enc(s){ return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
-function encData(s){ return encodeURIComponent(s) }
+let allPosts = [];
 
-const posts = [
-  {num:1,title:"Launch Post",product:"All Products",headline:"STOP THE LEAK.",subtext:"Ripple. Gotcha. Frother. WSUP.",cta:'DM "LEAK"',
-   caption:`Eso Es is live.\n\nMost small businesses don't have a marketing problem.\n\nThey have leaks.\n\nLeaking leads because people can't find them.\nLeaking bookings because they miss calls.\nLeaking repeat customers because nobody follows up.\nLeaking time because everything lives in the owner's head.\n\nSo I built Eso Es as a practical local business OS.\n\nRipple gets them calling.\nGotcha catches the call.\nFrother keeps them coming back.\nWSUP gets the business out of the owner's head.\n\nBuilt for local businesses that need practical systems, not another agency invoice.\n\nDM "LEAK" if you want me to tell you where your business is leaking first.\n\nesoes.com.au`,
-   prompt:`Bold retro-comic social graphic for Eso Es. Cream background, heavy black typography, yellow CTA button, thick black borders, red and cyan accents, terminal/system motif. Main text: "STOP THE LEAK." Subtext: "Ripple. Gotcha. Frother. WSUP." CTA button: "DM LEAK". Style: retro comic book meets business OS.`},
-
-  {num:2,title:"The Leak Angle",product:"Brand",headline:"YOUR BUSINESS IS LEAKING.",subtext:"Missed calls. Weak Google. No follow-up.",cta:'DM "LEAK"',
-   caption:`Your business might not need more marketing.\n\nIt might need fewer leaks.\n\nIf people can't find you, that's a leak.\nIf you miss calls, that's a leak.\nIf nobody follows up, that's a leak.\nIf staff keep asking the same question, that's a leak.\nIf everything lives in your head, that's a massive leak.\n\nEso Es helps small businesses plug the boring leaks that quietly cost money.\n\nDM "LEAK" and I'll point out the first one to fix.`,
-   prompt:`Bold checklist-style social post. Cream/black/yellow/red/cyan, terminal dashboard feel. Headline: "YOUR BUSINESS IS LEAKING." Checklist items with checkboxes: "Missed calls. Weak Google. No follow-up. No SOPs. No loyalty." Each item has a red X. CTA: "DM LEAK".`},
-
-  {num:3,title:"WSUP Cash Post",product:"WSUP",headline:"STOP BEING THE INSTRUCTION MANUAL.",subtext:"SOPs. Checklists. Staff guides. Workflow maps.",cta:'DM "WSUP"',
-   caption:`If your team keeps asking you the same question every week, you don't have a staff problem.\n\nYou have a systems problem.\n\nWSUP turns the way your business runs into:\n\nSOPs\nChecklists\nStaff guides\nOpening and closing procedures\nCustomer scripts\nWorkflow maps\nAction priorities\n\nSo the business stops relying on your memory and panic.\n\nFirst offer: WSUP Starter SOP Pack from $497.\n\nDM "WSUP" if your business is stuck in your head.`,
-   prompt:`WSUP social graphic. Purple accent, cream background, black heavy type, yellow CTA button. Main text: "STOP BEING THE INSTRUCTION MANUAL." Subtext list: "SOPs. Checklists. Staff guides. Workflow maps." Operations-board aesthetic with grid/clipboard motifs.`},
-
-  {num:4,title:"Gotcha Missed-Call Post",product:"Gotcha",headline:"MISSED CALL? GOTCHA.",subtext:"Instant SMS reply. Lead saved.",cta:'DM "GOTCHA"',
-   caption:`Missed calls are not harmless.\n\nThey are warm leads walking out the back door.\n\nA customer calls.\nYou're busy.\nYou miss it.\nThey call the next business on Google.\n\nGotcha fixes that.\n\nInstant missed-call text-back.\nBooking link.\nCallback message.\nCustomer captured before they go cold.\n\nDM "GOTCHA" if missed calls are costing you money.`,
-   prompt:`Gotcha social graphic. Red alert style, cream background, thick black borders. Show phone notification with missed call, then instant SMS reply panel. Main text: "MISSED CALL? GOTCHA." Lead saved message. Urgent, action-oriented, bold red accent.`},
-
-  {num:5,title:"Ripple Post",product:"Ripple",headline:"GET FOUND. GET CALLED.",subtext:"Google. Reviews. Promos. Follow-up.",cta:'DM "RIPPLE"',
-   caption:`Being good at what you do is not enough if people can't find you.\n\nRipple helps local businesses clean up the boring visibility stuff:\n\nGoogle presence\nReviews\nPromos\nFollow-up\nLocal lead flow\n\nNot agency fluff.\nNot a 40-page strategy deck.\nJust the stuff that helps people find you, trust you, and contact you.\n\nDM "RIPPLE" if your Google presence needs a kick up the backside.`,
-   prompt:`Ripple social graphic. Cyan accent, cream background, bold black type. Main text: "GET FOUND. GET CALLED." Google search card visual, review stars, location pin. Subtext: "Google visibility. Reviews. Promos. Follow-up." Local map aesthetic.`},
-
-  {num:6,title:"Frother Post",product:"Frother",headline:"TAP IN. STACK STAMPS. FROTH ON.",subtext:"Digital loyalty for local venues.",cta:'DM "FROTHER"',
-   caption:`New customers are expensive.\n\nRegulars are gold.\n\nFrother is a digital loyalty and promo system for cafes, pubs, restaurants, takeaways, and local venues.\n\nTap in.\nStack stamps.\nFroth on.\n\nNo paper cards.\nNo app download.\nNo corporate loyalty nonsense.\n\nDM "FROTHER" if you want regulars coming back more often.`,
-   prompt:`Frother social graphic. Green accent, warm cream background, bold black typography. Show digital stamp card (8 stamps, tap-to-fill). Coffee/venue vibe. Main text: "TAP IN. STACK STAMPS. FROTH ON." Warm, local, community feel. No corporate look.`},
-
-  {num:7,title:"Anti-Agency Post",product:"Brand",headline:"NOT AN AGENCY. A LEAK PLUGGER.",subtext:"Practical systems. No invoice shock.",cta:'DM "LEAK"',
-   caption:`Not every business needs an agency.\n\nSome just need the leak plugged.\n\nYour Google listing is weak.\nYour missed calls are costing jobs.\nYour staff procedures are in your head.\nYour follow-up is random.\nYour loyalty system is paper and hope.\n\nThat's not a $2,000/month agency problem.\n\nThat's a practical systems problem.\n\nThat's Eso Es.\n\nDM "LEAK" and I'll tell you the first thing I'd fix.`,
-   prompt:`Social graphic. Headline: "NOT AN AGENCY. A LEAK PLUGGER." Bold comic book style, cream/black/yellow. Icons for phone, Google pin, review stars, checklist, loyalty stamp. Cross-out over "agency" word. Anti-corporate, direct, confident.`},
-
-  {num:8,title:"Your Experience Angle",product:"Brand",headline:"BUILT FROM REAL OPERATIONS.",subtext:"Production. Hospitality. Training. Chaos.",cta:'DM "OPS"',
-   caption:`I didn't build Eso Es from a marketing textbook.\n\nI built it from years inside real operations.\n\nCoffee roasting.\nProduction.\nHospitality.\nFood safety.\nHACCP.\nOHS.\nStaff training.\nQuality control.\nDaily business chaos.\n\nI know what happens when systems are missing:\n\nPeople guess.\nOwners repeat themselves.\nCustomers get inconsistent service.\nGood businesses bleed time and money quietly.\n\nEso Es exists to plug those leaks.\n\nDM "OPS" if your business needs cleaning up.`,
-   prompt:`Founder-experience graphic. Gritty operations board aesthetic. Main text: "BUILT FROM REAL OPERATIONS." Subtext: "Production. Hospitality. Staff training. Daily business chaos." Worn paper texture, clipboard motif, industrial feel. Cream/black/yellow.`},
-
-  {num:9,title:"Owner Brain Post",product:"WSUP",headline:"GET YOUR BUSINESS OUT OF YOUR HEAD.",subtext:"SOPs. Checklists. Dashboards. Priorities.",cta:'DM "WSUP"',
-   caption:`If your business can't run unless you explain everything, you don't own a business.\n\nYou own a job with witnesses.\n\nOpening procedure? In your head.\nStaff onboarding? In your head.\nComplaint handling? In your head.\nFollow-up process? In your head.\nWeekly priorities? Also in your head.\n\nWSUP gets it out of your head and into a system your team can use.\n\nDM "WSUP" if you're tired of being the instruction manual.`,
-   prompt:`WSUP terminal graphic. Dark background, purple glow. Main text: "GET YOUR BUSINESS OUT OF YOUR HEAD." Brain-to-dashboard visual: messy thought bubbles on left, clean structured checklist on right. Purple accent, terminal/dashboard aesthetic.`},
-
-  {num:10,title:"Painful Truth",product:"Brand",headline:"THE OWNER IS THE SYSTEM.",subtext:"That works until it doesn't.",cta:'DM "SYSTEM"',
-   caption:`A lot of small businesses are not underperforming because the owner is lazy.\n\nThey're underperforming because the owner is the system.\n\nThe owner remembers.\nThe owner follows up.\nThe owner trains.\nThe owner fixes mistakes.\nThe owner knows where everything is.\n\nThat works until it doesn't.\n\nEso Es helps turn owner knowledge into practical workflows, automations, SOPs, and follow-up systems.\n\nDM "SYSTEM" if your business is held together by memory and caffeine.`,
-   prompt:`Dramatic graphic. Headline: "THE OWNER IS THE SYSTEM." Subtext: "That works until it doesn't." Split visual: left side shows single person with arrows pointing everywhere; right side shows clean organised system. Bold cream/black/yellow, editorial feel.`},
-
-  {num:11,title:"Local Businesses",product:"Brand",headline:"BUILT FOR LOCAL OPERATORS.",subtext:"Tradies. Cafes. Salons. Clinics. Mechanics.",cta:'DM "LOCAL"',
-   caption:`Built for local operators.\n\nTradies.\nCafes.\nSalons.\nClinics.\nMechanics.\nVenues.\nSmall teams.\n\nNot enterprise software.\nNot Silicon Valley theatre.\nNot "book a discovery call so we can talk at you for 45 minutes."\n\nEso Es is practical systems for businesses that need less chaos and more customers.\n\nDM "LOCAL" if you want an Ops Check.`,
-   prompt:`Grid graphic. Headline: "BUILT FOR LOCAL OPERATORS." 6 tiles, each with an icon and label: Tradies (wrench), Cafes (coffee), Salons (scissors), Clinics (cross), Mechanics (spanner), Venues (music note). Bold cream/black/yellow, no corporate polish.`},
-
-  {num:12,title:"Bookings Leak",product:"Brand",headline:"BOOKINGS DON'T VANISH. THEY LEAK.",subtext:"One missed call. One lost review. One gone.",cta:'DM "BOOKINGS"',
-   caption:`You don't lose bookings all at once.\n\nYou lose them quietly.\n\nOne missed call.\nOne slow reply.\nOne bad Google listing.\nOne unanswered review.\nOne customer who forgot you existed.\nOne staff member who did the process differently again.\n\nThat's how money leaks out.\n\nEso Es plugs those leaks.\n\nDM "BOOKINGS" if you want the first leak found.`,
-   prompt:`Leak-motif graphic. Headline: "BOOKINGS DON'T VANISH. THEY LEAK." Dripping water droplet icons beside: missed call, Google listing, review, follow-up, staff process. Red/black leak visual. Cream background, thick borders.`},
-
-  {num:13,title:"Simple Explanation",product:"All Products",headline:"FOUR THINGS. THAT'S IT.",subtext:"Find. Catch. Keep. Systemise.",cta:'DM "LEAK"',
-   caption:`Eso Es does four things:\n\nRipple gets them calling.\nGotcha catches the call.\nFrother keeps them coming back.\nWSUP gets the business out of your head.\n\nThat's it.\n\nFind customers.\nCatch customers.\nKeep customers.\nSystemise the business.\n\nSimple because simple is what actually gets used.\n\nDM "LEAK" if you want to know which one you need first.`,
-   prompt:`Four-card product graphic. Each card has its product colour: Ripple (cyan), Gotcha (red), Frother (green), WSUP (purple). Cards show: "GET FOUND", "CATCH THE CALL", "KEEP REGULARS", "SYSTEMISE". Headline: "FOUR THINGS. THAT'S IT." Bold, clean, retro comic style.`},
-
-  {num:14,title:"WSUP Offer",product:"WSUP",headline:"WSUP STARTER SOP PACK.",subtext:"From $497. 3 SOPs. Checklist. Template.",cta:'DM "WSUP"',
-   caption:`New offer:\n\nWSUP Starter SOP Pack.\n\nFor local businesses where everything is stuck in the owner's head.\n\nYou get:\n\n3 core SOPs\n1 staff checklist\n1 customer response template\n1 simple handover doc\nA cleaner way to train your team\n\nFrom $497.\n\nDM "WSUP" and I'll tell you which 3 SOPs I'd build first for your business.`,
-   prompt:`Offer card. Headline: "WSUP STARTER SOP PACK." Large price tag: "From $497". Bullet checklist: 3 SOPs, checklist, response template, handover doc. Purple accent, operations-board feel, cream background, yellow CTA button.`},
-
-  {num:15,title:"Gotcha Offer",product:"Gotcha",headline:"GOTCHA MISSED CALL RECOVERY.",subtext:"Catch the customer before they're gone.",cta:'DM "GOTCHA"',
-   caption:`New offer:\n\nGotcha Missed Call Recovery.\n\nFor businesses that miss calls while working, serving, driving, cleaning, quoting, cooking, cutting hair, or generally trying to survive the day.\n\nWhen you miss a call, the customer gets an instant useful text.\n\nNot later.\nNot when you remember.\nInstantly.\n\nDM "GOTCHA" if missed calls are leaking money.`,
-   prompt:`Offer card. Headline: "GOTCHA MISSED CALL RECOVERY." Red alert style. Show phone screen: missed call notification → instant SMS reply flying out. Subtext: "Catch the customer before they call someone else." Urgent, action, red/cream/black.`},
-
-  {num:16,title:"Ripple Offer",product:"Ripple",headline:"RIPPLE LOCAL VISIBILITY CLEANUP.",subtext:"Get found. Get followed up.",cta:'DM "RIPPLE"',
-   caption:`New offer:\n\nRipple Local Visibility Cleanup.\n\nFor businesses that rely on Google, reviews, repeat customers, and local search but have no real system behind it.\n\nRipple helps clean up:\n\nVisibility\nReviews\nPromos\nFollow-up\nLocal lead flow\n\nDM "RIPPLE" if your business should be easier to find.`,
-   prompt:`Offer card. Headline: "RIPPLE LOCAL VISIBILITY CLEANUP." Cyan/cream/black. Google map pin, review stars, promo megaphone icons. Checklist: Visibility, Reviews, Promos, Follow-up, Lead flow. Subtext: "Get found. Get followed up. Get the customer."`},
-
-  {num:17,title:"Frother Offer",product:"Frother",headline:"FROTHER FOR VENUES.",subtext:"Digital loyalty without the nonsense.",cta:'DM "FROTHER"',
-   caption:`New offer:\n\nFrother for venues.\n\nDigital loyalty and promos for cafes, pubs, restaurants, takeaways, and local hospitality.\n\nNo paper stamp cards.\nNo app download.\nNo "please scan this QR code and create an account with your birth certificate" nonsense.\n\nTap in.\nStack stamps.\nFroth on.\n\nDM "FROTHER" if you want regulars back more often.`,
-   prompt:`Offer card. Headline: "FROTHER FOR VENUES." Green accent, warm cream background. Show digital loyalty card with coffee stamp icons filling up. Cross out: paper card, app download. Bold: "TAP IN. STACK STAMPS. FROTH ON." Inviting, local, warm.`},
-
-  {num:18,title:"Accountant-Style Leak",product:"Brand",headline:"EVERY LEAK HAS A COST.",subtext:"And you're paying it quietly.",cta:'DM "LEAK"',
-   caption:`Every leak has a cost.\n\nMissed call? Lost booking.\nWeak Google profile? Lost discovery.\nNo review system? Lost trust.\nNo follow-up? Lost repeat customer.\nNo SOPs? Lost time.\n\nYou don't always need more leads.\nSometimes you need to stop losing the ones already there.\n\nDM "LEAK" and I'll help find the first one.`,
-   prompt:`Receipt/invoice-style graphic. Headline: "EVERY LEAK HAS A COST." Formatted like a business receipt: line items with costs: "Missed call = Lost booking", "Weak Google = Lost discovery", "No reviews = Lost trust", "No SOPs = Lost time". Total line: "Plug the leaks." Cream/black/red/yellow.`},
-
-  {num:19,title:"Soft Sell",product:"Brand",headline:"OPS CHECKS OPEN.",subtext:"Find the leak. Pick the fix.",cta:'DM "CHECK"',
-   caption:`I'm opening a small number of Eso Es Ops Checks before the end of the month.\n\nIt's for local businesses that feel messy behind the scenes.\n\nThe goal is simple:\n\nFind what's leaking.\nPick the first fix.\nKeep it practical.\nAvoid bloated agency nonsense.\n\nDM "CHECK" if you want one.`,
-   prompt:`Booking-style limited offer graphic. Headline: "OPS CHECKS OPEN." Limited slots visual (3 of 5 filled circles). Subtext: "Find the leak. Pick the fix." Yellow CTA button. Clean, cream/black, appointment card aesthetic.`},
-
-  {num:20,title:"Before/After",product:"Brand",headline:"BEFORE → AFTER.",subtext:"Chaos → System. Missed → Caught.",cta:'DM "FIX"',
-   caption:`Before Eso Es:\n\nMissed calls.\nRandom follow-up.\nNo review rhythm.\nDead Google posts.\nStaff asking the same questions.\nOwner doing everything from memory.\n\nAfter Eso Es:\n\nCalls caught.\nCustomers followed up.\nReviews requested.\nPromos planned.\nProcesses documented.\nOwner slightly less cooked.\n\nThat's the game.\n\nDM "FIX" if you want the first leak plugged.`,
-   prompt:`Split before/after graphic. Left side (chaos): red crossed items — missed calls, random follow-up, no reviews, memory-only. Right side (fixed): green ticked items — caught, followed up, reviewed, documented. Arrow dividing line. Headline: "BEFORE → AFTER." Bold Eso Es style.`},
-
-  {num:21,title:"For Tradies",product:"Brand",headline:"TRADIES: STOP LEAKING JOBS.",subtext:"Missed calls. Quotes. Reviews. Google.",cta:'DM "TRADIE"',
-   caption:`Tradies lose money in boring ways.\n\nNot because they're bad at the work.\n\nBecause:\n\nCalls get missed.\nQuotes don't get followed up.\nGoogle profiles go stale.\nReviews don't get requested.\nEverything lives in the owner's head.\n\nEso Es fixes the admin and customer flow around the work.\n\nDM "TRADIE" if you want the leaks found.`,
-   prompt:`Tradie-focused graphic. Hard-hat/tools visual motif. Headline: "TRADIES: STOP LEAKING JOBS." Bullet points with icons: missed calls, quote follow-up, stale Google, no reviews. Bold, honest, no-fluff. Cream/black/yellow, construction/trades feel.`},
-
-  {num:22,title:"For Cafes and Venues",product:"Frother",headline:"MORE REGULARS. LESS CHAOS.",subtext:"Loyalty. Promos. Staff systems. Follow-up.",cta:'DM "VENUE"',
-   caption:`Cafes and venues don't just need more customers.\n\nThey need more regulars.\n\nThey need:\n\nBetter local visibility.\nBetter promos.\nBetter loyalty.\nBetter staff systems.\nBetter follow-up.\nLess chaos.\n\nEso Es helps plug the leaks from first visit to repeat visit.\n\nDM "VENUE" if your venue needs a cleaner customer system.`,
-   prompt:`Cafe/venue graphic. Warm green and cream tones. Show: loyalty card with stamps, staff checklist on clipboard, promo chalkboard. Headline: "MORE REGULARS. LESS CHAOS." Community, warm, practical. Local hospitality vibe without corporate polish.`},
-
-  {num:23,title:"For Salons",product:"All Products",headline:"SALONS: STOP LEAKING BOOKINGS.",subtext:"Missed calls. Reviews. Promos. SOPs.",cta:'DM "SALON"',
-   caption:`Salons leak money when:\n\nCalls get missed.\nBookings are slow to confirm.\nReviews aren't requested.\nClients forget to rebook.\nStaff do things differently.\nPromos are random.\n\nEso Es helps clean that up.\n\nRipple gets found.\nGotcha catches missed calls.\nFrother-style promos bring people back.\nWSUP documents how the business runs.\n\nDM "SALON" if you want an Ops Check.`,
-   prompt:`Salon-focused graphic. Red/cyan/purple accents, cream background. Appointment calendar visual with booking alerts. Headline: "SALONS: STOP LEAKING BOOKINGS." Four product icons (Ripple, Gotcha, Frother, WSUP) each solving a different salon problem. Bold, clean.`},
-
-  {num:24,title:"No Dashboard Post",product:"Brand",headline:"NO MORE DASHBOARD THEATRE.",subtext:"Useful systems. Quiet. Practical.",cta:'DM "USEFUL"',
-   caption:`Small business owners do not need another dashboard they'll forget to open.\n\nThey need systems that quietly do useful work.\n\nCatch missed calls.\nRequest reviews.\nCreate follow-up.\nDocument procedures.\nBring regulars back.\n\nThat's the point of Eso Es.\n\nLess software theatre.\nMore boring useful stuff.\n\nDM "USEFUL" if that sounds like your kind of thing.`,
-   prompt:`Terminal-style graphic. Dark background, green text. Headline: "NO MORE DASHBOARD THEATRE." Show a fake overcomplicated dashboard with a red X, then a clean simple checklist with a green tick. Subtext: "Just useful systems that plug leaks." Anti-SaaS energy.`},
-
-  {num:25,title:"Founder Voice",product:"Brand",headline:"NOT AN AI AGENCY.",subtext:"A practical leak plugger for local business.",cta:'DM "LEAK"',
-   caption:`I'm not trying to build another AI agency.\n\nThere are enough of those.\n\nI'm building practical systems for small businesses that are already working hard but leaking money through messy operations.\n\nThat means:\n\nMissed calls.\nWeak visibility.\nPoor follow-up.\nNo loyalty system.\nNo SOPs.\nToo much living in the owner's head.\n\nEso Es is the leak plugger.\n\nDM "LEAK" if you want me to look at your business.`,
-   prompt:`Founder-style graphic. Bold, plain, anti-corporate. Big crossed-out text: "AI AGENCY" → replaced with "LEAK PLUGGER". Cream background, heavy black typography. Subtext: "Practical systems for local business." Direct, honest, confident.`},
-
-  {num:26,title:"Urgency",product:"All Products",headline:"PICK YOUR LEAK.",subtext:"One thing. Start now. Fix it.",cta:'DM your fix',
-   caption:`If you want your business cleaner by next month, don't wait until next month.\n\nPick one leak now.\n\nMissed calls? Start with Gotcha.\nWeak local visibility? Start with Ripple.\nNo loyalty/repeat customer system? Start with Frother.\nEverything stuck in your head? Start with WSUP.\n\nDM the one you need:\n\nGOTCHA\nRIPPLE\nFROTHER\nWSUP`,
-   prompt:`Four-option decision graphic. Headline: "PICK YOUR LEAK." Four bold cards arranged 2x2: Missed Calls → GOTCHA (red), Weak Visibility → RIPPLE (cyan), No Loyalty → FROTHER (green), Systems Chaos → WSUP (purple). Each has a clear arrow. Urgent, decisive.`},
-
-  {num:27,title:"Mini Audit",product:"Brand",headline:"QUICK LEAK AUDIT.",subtext:"7 questions. Be honest.",cta:'DM "AUDIT"',
-   caption:`Quick self-audit:\n\nCan customers find you easily on Google?\nDo missed calls get an instant reply?\nDo you ask for reviews consistently?\nDo customers get followed up?\nDo you have a loyalty system?\nCan staff find procedures without asking you?\nCould the business run for a week without your brain?\n\nIf you said no more than twice, you have leaks.\n\nDM "AUDIT" and I'll tell you where I'd start.`,
-   prompt:`Checklist graphic. Headline: "QUICK LEAK AUDIT." 7 checklist items with tick/cross boxes. Style: clipboard or notepad, cream/black. Items are readable. Bottom line: "Said NO more than twice? You have leaks." CTA: "DM AUDIT." Bold, honest, direct.`},
-
-  {num:28,title:"Scarcity",product:"Brand",headline:"OPS CHECKS OPEN THIS MONTH.",subtext:"Small batch. Practical cleanup.",cta:'DM "CHECK"',
-   caption:`I'm taking on a small batch of local business system cleanups before the end of the month.\n\nThis is not a massive agency retainer.\n\nIt's practical cleanup:\n\nMissed calls\nGoogle visibility\nFollow-up\nLoyalty\nSOPs\nStaff systems\nWorkflow mess\n\nIf your business is leaking time or customers, DM "CHECK".\n\nI'll tell you if I can help.`,
-   prompt:`Limited-slots offer graphic. Headline: "OPS CHECKS OPEN THIS MONTH." Show 5 slots with 3 filled (urgency). Checklist of what gets cleaned up. Yellow CTA button. Subtext: "Small batch. Practical cleanup. No agency nonsense." Cream/black/yellow.`},
-
-  {num:29,title:"Direct Sales",product:"All Products",headline:"WHAT'S LEAKING?",subtext:"Four offers. One fix.",cta:'DM "START"',
-   caption:`Need one of these fixed?\n\nMissed calls\nWeak Google presence\nNo review system\nNo loyalty system\nNo staff procedures\nToo much owner brain dependency\n\nEso Es can help.\n\nStarter offers available before end of month:\n\nWSUP Starter SOP Pack\nGotcha Missed Call Recovery\nRipple Local Visibility Cleanup\nFrother Loyalty Setup\n\nDM "START" and tell me what's leaking.`,
-   prompt:`Product menu graphic. Headline: "WHAT'S LEAKING?" Four bold offer tiles: Ripple (cyan), Gotcha (red), Frother (green), WSUP (purple). Each with short description. Cream background, black borders. DM "START" CTA. Urgent end-of-month energy.`},
-
-  {num:30,title:"End of Month Push",product:"Brand",headline:"ONE LEAK FIRST.",subtext:"Not 47 things. Not a strategy deck.",cta:'DM "LEAK"',
-   caption:`Before the end of the month, I want to help a handful of local businesses plug their biggest leak.\n\nNot 47 things.\nNot a giant strategy deck.\nOne painful leak first.\n\nMissed calls.\nWeak visibility.\nNo follow-up.\nNo loyalty.\nNo systems.\nOwner doing everything from memory.\n\nEso Es exists for that.\n\nDM "LEAK" and I'll tell you the first thing I'd fix.`,
-   prompt:`Campaign graphic. Headline: "ONE LEAK FIRST." Circled/underlined for emphasis. Subtext list: Missed calls. Visibility. Follow-up. Loyalty. Systems. Bold yellow CTA: "DM LEAK." End-of-month urgency, clean editorial, cream/black/yellow.`}
-];
+function enc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+function encData(s){ return encodeURIComponent(String(s||'')) }
+function formatDate(d){ if(!d) return ''; const [y,m,day]=d.split('-'); return `${day}/${m}/${y}` }
 
 function buildCard(p) {
   const layout = LAYOUTS[(p.num - 1) % 5];
   const icon = ICONS[p.product] || '◆';
   const n = String(p.num).padStart(2,'0');
-  return `<div class="card" data-product="${enc(p.product)}" data-num="${p.num}" data-layout="${layout}" data-caption="${encData(p.caption)}" data-prompt="${encData(p.prompt)}">
+  const caption = p.caption || '';
+  const prompt = p.image_prompt || p.prompt || '';
+  const hook = p.hook || '';
+  const hashtags = p.hashtags || '';
+  const category = p.category || '';
+  const date = p.date || '';
+  return `<div class="card" data-product="${enc(p.product)}" data-num="${p.num}" data-layout="${layout}"
+    data-caption="${encData(caption)}" data-prompt="${encData(prompt)}"
+    data-hook="${encData(hook)}" data-hashtags="${encData(hashtags)}">
   <div class="card-visual">
     <div class="cv-bg"></div>
     <div class="cv-dots"></div>
@@ -381,9 +311,15 @@ function buildCard(p) {
   </div>
   <div class="card-body">
     <div class="card-title"><span class="num">#${n}</span>${enc(p.title)}</div>
-    <div class="caption-box">${enc(p.caption).replace(/%0A/g,'\n').replace(/%22/g,'"').replace(/%27/g,"'").replace(/%2C/g,',').replace(/%2E/g,'.').replace(/%21/g,'!').replace(/%3F/g,'?').replace(/%24/g,'$').replace(/%2F/g,'/').replace(/%28/g,'(').replace(/%29/g,')')}</div>
+    <div class="card-meta">
+      ${date ? `<span class="meta-chip meta-date">${formatDate(date)}</span>` : ''}
+      ${category ? `<span class="meta-chip meta-cat">${enc(category)}</span>` : ''}
+    </div>
+    ${hook ? `<div class="hook-box">"${enc(hook)}"</div>` : ''}
+    <div class="caption-box">${enc(caption)}</div>
+    ${hashtags ? `<div class="hashtag-line">${enc(hashtags)}</div>` : ''}
     <button class="prompt-toggle" onclick="togglePrompt(this)">▶ AI Visual Prompt</button>
-    <div class="prompt-box">${enc(p.prompt)}</div>
+    <div class="prompt-box">${enc(prompt)}</div>
     <div class="btn-row">
       <button class="copy-btn" onclick="copyField(this,'caption')">Copy Caption</button>
       <button class="copy-btn copy-prompt-btn" onclick="copyField(this,'prompt')">Copy Prompt</button>
@@ -392,8 +328,32 @@ function buildCard(p) {
 </div>`;
 }
 
-const grid = document.getElementById('grid');
-posts.forEach(p => grid.insertAdjacentHTML('beforeend', buildCard(p)));
+function renderCards(posts) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '<div class="no-results" id="noResults">No posts match this filter.</div>';
+  posts.forEach(p => grid.insertAdjacentHTML('beforeend', buildCard(p)));
+  attachFilters();
+}
+
+function attachFilters() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      const cards = document.querySelectorAll('.card');
+      let visible = 0;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.product === filter;
+        card.classList.toggle('hidden', !match);
+        if (match) visible++;
+      });
+      document.getElementById('count').textContent = visible;
+      const nr = document.getElementById('noResults');
+      if (nr) nr.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+}
 
 function togglePrompt(btn) {
   const box = btn.nextElementSibling;
@@ -405,53 +365,151 @@ function copyField(btn, field) {
   const card = btn.closest('.card');
   const raw = card.dataset[field];
   const text = decodeURIComponent(raw);
-  navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.textContent;
-    btn.textContent = '✓ Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2200);
-  }).catch(() => {
+  navigator.clipboard.writeText(text).then(() => flash(btn, field)).catch(() => {
     const ta = document.createElement('textarea');
-    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
     document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta);
-    btn.textContent = '✓ Copied!'; btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = field === 'caption' ? 'Copy Caption' : 'Copy Prompt'; btn.classList.remove('copied'); }, 2200);
+    document.body.removeChild(ta); flash(btn, field);
   });
+}
+
+function flash(btn, field) {
+  const orig = btn.textContent;
+  btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = orig; btn.classList.remove('copied');
+  }, 2200);
 }
 
 function togglePresent() {
   document.body.classList.toggle('pm');
   const btn = document.getElementById('presentBtn');
-  btn.textContent = document.body.classList.contains('pm') ? '✕ Exit Presentation' : '◼ Presentation Mode';
-  // In present mode, clicking a card exits present mode
+  btn.textContent = document.body.classList.contains('pm') ? '✕ Exit' : '◼ Present';
   document.querySelectorAll('.card').forEach(card => {
     card.onclick = () => {
       if (document.body.classList.contains('pm')) {
         document.body.classList.remove('pm');
-        btn.textContent = '◼ Presentation Mode';
+        btn.textContent = '◼ Present';
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     };
   });
 }
 
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    const cards = document.querySelectorAll('.card');
-    let visible = 0;
-    cards.forEach(card => {
-      const match = filter === 'all' || card.dataset.product === filter;
-      card.classList.toggle('hidden', !match);
-      if (match) visible++;
-    });
-    document.getElementById('count').textContent = visible;
-    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+/* ── VIEWS ── */
+function setView(view) {
+  document.getElementById('viewGrid').classList.toggle('active', view === 'grid');
+  document.getElementById('viewCal').classList.toggle('active', view === 'calendar');
+  document.getElementById('grid').style.display = view === 'grid' ? '' : 'none';
+  const calView = document.getElementById('calendarView');
+  if (view === 'calendar') {
+    calView.classList.add('visible');
+    if (!calView.dataset.built) { buildCalendar(); calView.dataset.built = '1'; }
+  } else {
+    calView.classList.remove('visible');
+  }
+}
+
+/* ── CALENDAR ── */
+function buildCalendar() {
+  const calView = document.getElementById('calendarView');
+  const byDate = {};
+  allPosts.forEach(p => {
+    if (p.date) { byDate[p.date] = byDate[p.date] || []; byDate[p.date].push(p); }
   });
-});
+
+  const months = [{y:2026,m:7},{y:2026,m:8}];
+  const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  let html = '';
+  months.forEach(({y, m}) => {
+    const monthName = new Date(y, m-1, 1).toLocaleString('default', {month:'long'});
+    const firstDay = new Date(y, m-1, 1).getDay();
+    const daysInMonth = new Date(y, m, 0).getDate();
+    html += `<div class="cal-month">
+      <div class="cal-month-title">${monthName} ${y}</div>
+      <div class="cal-grid">
+        ${DAYS.map(d => `<div class="cal-day-label">${d}</div>`).join('')}
+        ${Array(firstDay).fill('<div class="cal-day empty"></div>').join('')}`;
+    for (let d = 1; d <= daysInMonth; d++) {
+      const key = `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const dayPosts = byDate[key] || [];
+      const today = new Date(); const isToday = today.getFullYear()===y && today.getMonth()===m-1 && today.getDate()===d;
+      html += `<div class="cal-day${isToday?' today':''}">
+        <div class="cal-day-num">${d}</div>
+        ${dayPosts.map(p => {
+          const bg = PROD_COLORS[p.product] || '#888';
+          const fg = PROD_TEXT[p.product] || '#000';
+          return `<div class="cal-post" style="background:${bg};color:${fg};border-color:${bg}" title="${p.title}">${p.product} #${p.num}</div>`;
+        }).join('')}
+      </div>`;
+    }
+    html += '</div></div>';
+  });
+  calView.innerHTML = html;
+}
+
+/* ── EXPORT CSV ── */
+function csvCell(v) {
+  const s = String(v || '').replace(/\n/g, ' ').replace(/\r/g, '');
+  if (s.includes(',') || s.includes('"') || s.includes('\n')) return '"' + s.replace(/"/g, '""') + '"';
+  return s;
+}
+
+function exportCSV() {
+  const visible = allPosts.filter(p => {
+    const card = document.querySelector(`.card[data-num="${p.num}"]`);
+    return card && !card.classList.contains('hidden');
+  });
+  const cols = ['date','product','category','headline','hook','caption','cta','graphic_concept','image_prompt','hashtags'];
+  const rows = [cols.join(',')];
+  visible.forEach(p => {
+    rows.push(cols.map(c => csvCell(p[c] || p.prompt || '')).join(','));
+  });
+  download('eso-es-posts.csv', rows.join('\n'), 'text/csv');
+}
+
+/* ── EXPORT CANVA PROMPTS ── */
+function exportCanva() {
+  const visible = allPosts.filter(p => {
+    const card = document.querySelector(`.card[data-num="${p.num}"]`);
+    return card && !card.classList.contains('hidden');
+  });
+  const cols = ['num','product','headline','image_prompt'];
+  const rows = [cols.join(',')];
+  visible.forEach(p => {
+    rows.push(cols.map(c => csvCell(p[c] || p.prompt || '')).join(','));
+  });
+  download('eso-es-canva-prompts.csv', rows.join('\n'), 'text/csv');
+}
+
+function download(filename, content, type) {
+  const blob = new Blob([content], {type});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ── LOAD POSTS ── */
+async function loadPosts() {
+  try {
+    const res = await fetch('data/posts.json');
+    if (!res.ok) throw new Error('fetch failed');
+    allPosts = await res.json();
+  } catch {
+    document.getElementById('statusLabel').textContent = 'Error loading posts.json';
+    return;
+  }
+  document.getElementById('count').textContent = allPosts.length;
+  document.getElementById('headerSub').textContent = `${allPosts.length} Posts Ready // esoes.com.au // Instagram + LinkedIn`;
+  document.getElementById('statusLabel').textContent = 'All Ready';
+  document.querySelector('.filter-btn[data-filter="all"]').textContent = `All (${allPosts.length})`;
+  renderCards(allPosts);
+}
+
+loadPosts();
 </script>
 </body>
 </html>

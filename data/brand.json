@@ -1,0 +1,75 @@
+{
+  "name": "Eso Es",
+  "website": "https://esoes.com.au",
+  "tagline": "Practical systems for local business.",
+  "positioning": "Not an agency. A leak plugger.",
+  "core_metaphor": "Every business has leaks — missed calls, weak visibility, no follow-up, no systems. Eso Es finds the leaks and plugs them.",
+  "voice": {
+    "tone": ["Direct", "Practical", "Anti-agency fluff", "Australian", "Smart but approachable", "Small business focused"],
+    "style": "Problem → Solution",
+    "never": ["corporate speak", "agency jargon", "empty buzzwords", "overlong sentences", "passive voice"],
+    "always": ["short punchy lines", "specific pain points", "DM call-to-actions", "practical outcomes", "honest founder voice"]
+  },
+  "audience": {
+    "primary": "Australian local business owners",
+    "types": ["Tradies", "Cafes", "Salons", "Clinics", "Mechanics", "Venues", "Small teams"],
+    "pain_points": [
+      "Missing calls while working",
+      "Can't be found on Google",
+      "No loyalty or repeat system",
+      "Everything stuck in owner's head",
+      "Staff asking the same questions",
+      "Random follow-up or none at all",
+      "No SOPs or documentation"
+    ]
+  },
+  "products": {
+    "Gotcha": {
+      "tagline": "Missed call? Gotcha.",
+      "what": "Instant missed-call text-back system for local businesses",
+      "pain": "Missed calls walk out the door and call the next business on Google",
+      "outcome": "Customer captured before they go cold",
+      "cta_keyword": "GOTCHA",
+      "colour": "#E63946"
+    },
+    "Ripple": {
+      "tagline": "Get found. Get called.",
+      "what": "Local visibility cleanup — Google, reviews, promos, follow-up",
+      "pain": "Being good at the work doesn't help if people can't find you",
+      "outcome": "Local customers can find you, trust you, and contact you",
+      "cta_keyword": "RIPPLE",
+      "colour": "#00B4D8"
+    },
+    "Frother": {
+      "tagline": "Tap in. Stack stamps. Froth on.",
+      "what": "Digital loyalty and promos for cafes, pubs, restaurants, takeaways, local venues",
+      "pain": "New customers are expensive. Regulars are gold. Paper stamp cards don't work.",
+      "outcome": "Regulars come back more often without any paper or app download nonsense",
+      "cta_keyword": "FROTHER",
+      "colour": "#2DC653"
+    },
+    "WSUP": {
+      "tagline": "Stop being the instruction manual.",
+      "what": "SOPs, checklists, staff guides, workflow maps — gets the business out of the owner's head",
+      "pain": "If your business can't run without you explaining everything, you own a job with witnesses",
+      "outcome": "Team can find procedures, train properly, and run the business without the owner's brain",
+      "cta_keyword": "WSUP",
+      "colour": "#7B2FBE"
+    }
+  },
+  "offers": [
+    "WSUP Starter SOP Pack from $497",
+    "Gotcha Missed Call Recovery",
+    "Ripple Local Visibility Cleanup",
+    "Frother Loyalty Setup",
+    "Eso Es Ops Check (limited)"
+  ],
+  "hashtag_sets": {
+    "Gotcha": "#missedcalls #leadrecovery #gotcha #esoes #smallbusiness #localbusiness #tradie #callrecovery #textback",
+    "Ripple": "#googlemybusiness #localSEO #reviews #ripple #esoes #getfound #smallbusiness #localbusiness #visibilitytips",
+    "Frother": "#loyalty #cafes #hospitality #localvenue #frother #esoes #regulars #digitalstamps #repeatcustomers",
+    "WSUP": "#SOPs #operations #systemise #wsup #esoes #smallbusiness #businesssystems #stafftraining #procedures",
+    "Brand": "#esoes #smallbusiness #localbusiness #australianbusiness #leakplugged #businesssystems #noagency #practicalops",
+    "All Products": "#esoes #smallbusiness #localbusiness #missedcalls #loyalty #googlevisibility #SOPs #leakplugged"
+  }
+}

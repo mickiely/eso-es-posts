@@ -1,0 +1,19 @@
+{
+  "name": "eso-es-content-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI-powered content generator for Eso Es social media",
+  "scripts": {
+    "generate": "node generate.js",
+    "gen:gotcha": "node generate.js --product Gotcha --count 10",
+    "gen:ripple": "node generate.js --product Ripple --count 10",
+    "gen:frother": "node generate.js --product Frother --count 5",
+    "gen:wsup": "node generate.js --product WSUP --count 5",
+    "gen:brand": "node generate.js --product Brand --count 5",
+    "gen:30": "node generate.js --count 30",
+    "gen:90": "node generate.js --count 90"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0"
+  }
+}
