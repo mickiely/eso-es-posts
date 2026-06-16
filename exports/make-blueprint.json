@@ -1,0 +1,155 @@
+{
+  "name": "Eso Es Auto Poster",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:watchRows",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": "YOUR_GOOGLE_CONNECTION_ID",
+        "spreadsheetId": "YOUR_SPREADSHEET_ID",
+        "sheetId": "Posts",
+        "limit": 5,
+        "includeEmptyRows": false
+      },
+      "metadata": {
+        "designer": { "x": 0, "y": 0 },
+        "restore": {
+          "parameters": {
+            "spreadsheetId": { "label": "Eso Es Auto Poster" },
+            "sheetId": { "label": "Posts" }
+          }
+        },
+        "expect": [
+          { "name": "post_num",      "type": "text", "label": "Post #" },
+          { "name": "date",          "type": "date", "label": "Date" },
+          { "name": "time",          "type": "text", "label": "Time" },
+          { "name": "platform",      "type": "text", "label": "Platform" },
+          { "name": "product",       "type": "text", "label": "Product" },
+          { "name": "caption",       "type": "text", "label": "Caption" },
+          { "name": "hashtags",      "type": "text", "label": "Hashtags" },
+          { "name": "image_prompt",  "type": "text", "label": "Image Prompt" },
+          { "name": "canva_template","type": "text", "label": "Canva Template" },
+          { "name": "status",        "type": "text", "label": "Status" },
+          { "name": "scheduled_url", "type": "text", "label": "Scheduled URL" }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicFilter",
+      "version": 1,
+      "parameters": {},
+      "filter": {
+        "name": "Status = Approved",
+        "conditions": [[
+          {
+            "a": "{{1.status}}",
+            "b": "Approved",
+            "o": "text:equal"
+          }
+        ]]
+      },
+      "metadata": {
+        "designer": { "x": 300, "y": 0 }
+      }
+    },
+    {
+      "id": 3,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": false,
+        "useNewZLibDeCompression": true
+      },
+      "mapper": {
+        "url": "https://api.canva.com/rest/v1/autofills",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer YOUR_CANVA_API_TOKEN" },
+          { "name": "Content-Type",  "value": "application/json" }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "body": "{\"brand_template_id\": \"{{1.canva_template}}\", \"data\": {\"headline\": {\"type\": \"text\", \"text\": \"\"}, \"caption\": {\"type\": \"text\", \"text\": \"{{1.caption}}\"}}}"
+      },
+      "metadata": {
+        "designer": { "x": 600, "y": 0 },
+        "restore": { "expect": { "method": { "label": "POST" } } }
+      }
+    },
+    {
+      "id": 4,
+      "module": "facebook-pages:createPost",
+      "version": 4,
+      "parameters": {
+        "__IMTCONN__": "YOUR_FACEBOOK_CONNECTION_ID",
+        "pageId": "YOUR_FACEBOOK_PAGE_ID"
+      },
+      "mapper": {
+        "message": "{{1.caption}}\n\n{{1.hashtags}}",
+        "scheduledPublishTime": "{{formatDate(parseDate(1.date; \"YYYY-MM-DD\"); \"X\")}}",
+        "publishNow": false
+      },
+      "metadata": {
+        "designer": { "x": 900, "y": -150 }
+      }
+    },
+    {
+      "id": 5,
+      "module": "instagram-business:createCarouselPost",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": "YOUR_INSTAGRAM_CONNECTION_ID",
+        "accountId": "YOUR_INSTAGRAM_ACCOUNT_ID"
+      },
+      "mapper": {
+        "caption": "{{1.caption}}\n\n{{1.hashtags}}",
+        "mediaType": "IMAGE",
+        "mediaUrl": "{{3.data.job.result.url}}",
+        "publishNow": false
+      },
+      "metadata": {
+        "designer": { "x": 900, "y": 150 }
+      }
+    },
+    {
+      "id": 6,
+      "module": "google-sheets:updateRow",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": "YOUR_GOOGLE_CONNECTION_ID",
+        "spreadsheetId": "YOUR_SPREADSHEET_ID",
+        "sheetId": "Posts",
+        "rowNumber": "{{1.__ROW_NUMBER__}}"
+      },
+      "mapper": {
+        "status": "Scheduled",
+        "scheduled_url": "{{4.id}}"
+      },
+      "metadata": {
+        "designer": { "x": 1200, "y": 0 }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": { "orphans": [] },
+    "scheduling": {
+      "type": "INDEFINITELY",
+      "interval": 900
+    }
+  }
+}
