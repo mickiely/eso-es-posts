@@ -21,6 +21,7 @@ function App() {
     restart,
     selectEnquiry,
     setCustomerReply,
+    submitLive,
   } = useDemoState();
 
   const industry = state.industryId ? INDUSTRIES[state.industryId] : null;
@@ -60,20 +61,35 @@ function App() {
             industry={industry}
             selectedEnquiryId={state.selectedEnquiryId}
             customerReply={state.customerReply}
+            liveStatus={state.liveStatus}
+            liveResult={state.liveResult}
+            liveError={state.liveError}
             onSelectEnquiry={selectEnquiry}
             onReplyChange={setCustomerReply}
+            onSubmitLive={() =>
+              enquiry &&
+              submitLive({
+                industryId: industry.id,
+                businessName: industry.businessName,
+                enquiryId: enquiry.id,
+                enquiryLabel: enquiry.label,
+                customerReply: state.customerReply,
+              })
+            }
           />
         )}
 
         {state.step === 'leadCapture' && industry && enquiry && (
-          <LeadCapture industry={industry} enquiry={enquiry} />
+          <LeadCapture industry={industry} enquiry={enquiry} liveResult={state.liveResult} />
         )}
 
         {state.step === 'playbook' && industry && enquiry && (
-          <WsupPlaybook industry={industry} enquiry={enquiry} />
+          <WsupPlaybook industry={industry} enquiry={enquiry} liveResult={state.liveResult} />
         )}
 
-        {state.step === 'followUp' && industry && <FollowUp industry={industry} />}
+        {state.step === 'followUp' && industry && (
+          <FollowUp industry={industry} liveResult={state.liveResult} />
+        )}
 
         {state.step === 'results' && industry && enquiry && (
           <ResultsScreen industry={industry} enquiry={enquiry} />

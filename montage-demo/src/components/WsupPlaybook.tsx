@@ -1,12 +1,17 @@
-import type { EnquiryOption, IndustryConfig } from '../types';
+import type { EnquiryOption, IndustryConfig, LiveResult } from '../types';
 
 export function WsupPlaybook({
   industry,
   enquiry,
+  liveResult,
 }: {
   industry: IndustryConfig;
   enquiry: EnquiryOption;
+  liveResult: LiveResult | null;
 }) {
+  const checklist =
+    liveResult && liveResult.wsupChecklist.length > 0 ? liveResult.wsupChecklist : enquiry.playbook;
+
   return (
     <div className="panel">
       <div className="eyebrow" style={{ color: 'var(--purple)' }}>
@@ -16,9 +21,12 @@ export function WsupPlaybook({
       <p>
         For "{enquiry.label}" at {industry.businessName}:
       </p>
+      <p className="demo-data-note" style={{ textAlign: 'left' }}>
+        {liveResult ? 'Live webhook response (demo data)' : 'Demo fallback data'}
+      </p>
 
       <div className="checklist">
-        {enquiry.playbook.map((item, i) => (
+        {checklist.map((item, i) => (
           <div className="checklist-item" key={i}>
             <span className="box" />
             <span>{item}</span>

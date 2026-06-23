@@ -1,19 +1,28 @@
-import type { IndustryConfig } from '../types';
+import type { IndustryConfig, LiveResult, LiveStatus } from '../types';
 
 export function GotchaMissedCall({
   industry,
   selectedEnquiryId,
   customerReply,
+  liveStatus,
+  liveResult,
+  liveError,
   onSelectEnquiry,
   onReplyChange,
+  onSubmitLive,
 }: {
   industry: IndustryConfig;
   selectedEnquiryId: string | null;
   customerReply: string;
+  liveStatus: LiveStatus;
+  liveResult: LiveResult | null;
+  liveError: string | null;
   onSelectEnquiry: (id: string) => void;
   onReplyChange: (text: string) => void;
+  onSubmitLive: () => void;
 }) {
   const selected = industry.enquiryOptions.find((o) => o.id === selectedEnquiryId);
+  const displayedReply = liveStatus === 'success' && liveResult ? liveResult.gotchaReply : selected?.smsReply;
 
   return (
     <div className="panel">
@@ -51,16 +60,40 @@ export function GotchaMissedCall({
 
           {selected && (
             <>
-              <div className="sms-bubble outgoing" style={{ marginTop: 14 }}>
-                <div className="sms-label">Auto-suggested reply</div>
-                {selected.smsReply}
-              </div>
               <textarea
                 className="reply-input"
-                placeholder="Edit the response before it goes out (demo only — no message is actually sent)..."
+                placeholder="Edit the response before sending to the live demo webhook (no real SMS or call is sent)..."
                 value={customerReply}
                 onChange={(e) => onReplyChange(e.target.value)}
               />
+
+              <button
+                className="btn btn-primary"
+                style={{ marginTop: 10 }}
+                onClick={onSubmitLive}
+                disabled={liveStatus === 'loading'}
+              >
+                {liveStatus === 'loading' ? 'Contacting Gotcha…' : 'Send to Gotcha (Live)'}
+              </button>
+
+              {liveStatus === 'loading' && (
+                <p className="demo-data-note" style={{ marginTop: 8 }}>
+                  Waiting on the live Gotcha webhook…
+                </p>
+              )}
+
+              {liveStatus === 'error' && (
+                <p className="demo-data-note" style={{ marginTop: 8, color: 'var(--red)' }}>
+                  Live webhook unavailable ({liveError}) — showing demo fallback reply below.
+                </p>
+              )}
+
+              <div className="sms-bubble outgoing" style={{ marginTop: 14 }}>
+                <div className="sms-label">
+                  {liveStatus === 'success' ? 'Live Gotcha reply (demo data)' : 'Auto-suggested reply (demo fallback)'}
+                </div>
+                {displayedReply}
+              </div>
             </>
           )}
         </div>

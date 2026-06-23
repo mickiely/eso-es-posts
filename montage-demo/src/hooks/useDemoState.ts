@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { DemoState, IndustryId, StepId } from '../types';
 import { STEP_ORDER } from '../types';
+import { sendMissedCallEnquiry, type MissedCallPayload } from '../lib/webhook';
 
 const STORAGE_KEY = 'montage-demo-state';
 
@@ -10,6 +11,9 @@ const INITIAL_STATE: DemoState = {
   selectedEnquiryId: null,
   customerReply: '',
   callMissed: false,
+  liveStatus: 'idle',
+  liveResult: null,
+  liveError: null,
 };
 
 function loadState(): DemoState {
@@ -60,6 +64,9 @@ export function useDemoState() {
       selectedEnquiryId: null,
       customerReply: '',
       callMissed: false,
+      liveStatus: 'idle',
+      liveResult: null,
+      liveError: null,
     }));
   }, []);
 
@@ -81,11 +88,32 @@ export function useDemoState() {
   }, []);
 
   const selectEnquiry = useCallback((enquiryId: string) => {
-    setState((prev) => ({ ...prev, selectedEnquiryId: enquiryId }));
+    setState((prev) => ({
+      ...prev,
+      selectedEnquiryId: enquiryId,
+      liveStatus: 'idle',
+      liveResult: null,
+      liveError: null,
+    }));
   }, []);
 
   const setCustomerReply = useCallback((text: string) => {
     setState((prev) => ({ ...prev, customerReply: text }));
+  }, []);
+
+  const submitLive = useCallback(async (payload: MissedCallPayload) => {
+    setState((prev) => ({ ...prev, liveStatus: 'loading', liveError: null }));
+    try {
+      const result = await sendMissedCallEnquiry(payload);
+      setState((prev) => ({ ...prev, liveStatus: 'success', liveResult: result }));
+    } catch (err) {
+      setState((prev) => ({
+        ...prev,
+        liveStatus: 'error',
+        liveResult: null,
+        liveError: err instanceof Error ? err.message : 'Live webhook request failed.',
+      }));
+    }
   }, []);
 
   return {
@@ -101,5 +129,6 @@ export function useDemoState() {
     setCallMissed,
     selectEnquiry,
     setCustomerReply,
+    submitLive,
   };
 }

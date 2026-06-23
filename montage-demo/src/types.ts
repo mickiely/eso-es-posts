@@ -37,6 +37,23 @@ export interface IndustryConfig {
   avgJobValue: number;
 }
 
+export interface LeadSummary {
+  customer: string;
+  need: string;
+  urgency: Urgency;
+  estValue: number;
+  nextAction: string;
+}
+
+export interface LiveResult {
+  gotchaReply: string;
+  leadSummary: LeadSummary;
+  wsupChecklist: string[];
+  followUpAction: string;
+}
+
+export type LiveStatus = 'idle' | 'loading' | 'success' | 'error';
+
 export type StepId =
   | 'select'
   | 'discovery'
@@ -62,4 +79,7 @@ export interface DemoState {
   selectedEnquiryId: string | null;
   customerReply: string;
   callMissed: boolean;
+  liveStatus: LiveStatus;
+  liveResult: LiveResult | null;
+  liveError: string | null;
 }

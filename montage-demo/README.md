@@ -17,8 +17,10 @@ Target deployment: `demo.esoes.com.au`
   like theirs, instead of reading about it.
 - One shared app, one industry configuration object — no duplicated pages
   or codebases per industry.
-- No login, no backend, no real SMS/calls sent. All data shown is clearly
-  labelled as demonstration data.
+- No login required. The missed-call step can optionally call a live n8n
+  webhook for a real generated response; if it's unreachable, the demo
+  falls back to local mock data automatically. No real SMS or phone calls
+  are ever sent. All data shown is clearly labelled as demonstration data.
 
 See `/docs` for the full strategy, industry config reference, sales script,
 and future live-integration notes:
@@ -61,8 +63,59 @@ This is a static Vite build — no backend required.
 3. Set the custom domain to `demo.esoes.com.au` in Netlify's domain
    settings, and point the corresponding DNS record (CNAME) at the Netlify
    site.
-4. No environment variables are required for v1 — the app has no backend
-   dependencies.
+4. Set the `VITE_N8N_WEBHOOK_URL` environment variable in Netlify's site
+   settings if you want the missed-call step to hit a live n8n webhook
+   (see "Live webhook integration" below). The demo works fine without it —
+   it just always uses local mock data in that case.
+
+## Live webhook integration
+
+The missed-call step (Gotcha) can optionally POST the simulated enquiry to a
+live n8n webhook for a real generated response, instead of always using the
+local mock data baked into `src/config/industries.ts`.
+
+1. Copy `.env.example` to `.env` and set `VITE_N8N_WEBHOOK_URL` to your n8n
+   webhook URL.
+2. `.env` is gitignored — never commit real webhook URLs or credentials. Only
+   `.env.example` (a placeholder template) is tracked in git.
+3. If `VITE_N8N_WEBHOOK_URL` is unset, or the webhook is unreachable, slow
+   (8s timeout), or returns an unexpected response, the demo automatically
+   falls back to the local mock data for that industry/enquiry. The UI always
+   labels which is which ("Live webhook response (demo data)" vs "Demo
+   fallback data").
+
+**Request payload** (POST, JSON):
+
+```json
+{
+  "industryId": "barber",
+  "businessName": "Montage Cuts",
+  "enquiryId": "...",
+  "enquiryLabel": "...",
+  "customerReply": "..."
+}
+```
+
+**Expected response shape** (JSON):
+
+```json
+{
+  "gotchaReply": "string",
+  "leadSummary": {
+    "customer": "string",
+    "need": "string",
+    "urgency": "Low" | "Medium" | "High" | "Urgent",
+    "estValue": 0,
+    "nextAction": "string"
+  },
+  "wsupChecklist": ["string", "..."],
+  "followUpAction": "string"
+}
+```
+
+Any missing or malformed fields in the response are individually replaced
+with the local mock fallback values, so a partial response never breaks the
+demo. No real SMS or phone calls are ever sent by either path.
 
 ## Adding another industry
 
