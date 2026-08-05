@@ -11,9 +11,11 @@
     "gen:wsup": "node generate.js --product WSUP --count 5",
     "gen:brand": "node generate.js --product Brand --count 5",
     "gen:30": "node generate.js --count 30",
-    "gen:90": "node generate.js --count 90"
+    "gen:90": "node generate.js --count 90",
+    "seed:queue": "node scripts/seed-content-queue.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.27.0"
+    "@anthropic-ai/sdk": "^0.27.0",
+    "@supabase/supabase-js": "^2.45.0"
   }
 }

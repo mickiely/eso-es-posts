@@ -446,6 +446,7 @@ body.pm .tb-btn.tb-present{background:var(--red);color:#fff;border-color:var(--r
     <button class="tab" data-tab="builder" onclick="setTab('builder')">Post Builder</button>
     <button class="tab" data-tab="calendar" onclick="setTab('calendar')">Calendar</button>
     <button class="tab" data-tab="queue" onclick="setTab('queue')">Queue</button>
+    <button class="tab" data-tab="live" onclick="setTab('live')">Live</button>
   </nav>
   <div class="tb-utils">
     <button class="tb-btn" onclick="exportCSV()">↓ CSV</button>
@@ -606,6 +607,11 @@ body.pm .tb-btn.tb-present{background:var(--red);color:#fff;border-color:var(--r
   <!-- QUEUE TAB -->
   <div class="view-panel" id="v-queue">
     <div id="postingView"></div>
+  </div>
+
+  <!-- LIVE PUBLISHING TAB -->
+  <div class="view-panel" id="v-live">
+    <div id="liveQueueView"></div>
   </div>
 
 </div>
@@ -1135,6 +1141,8 @@ function setTab(tab) {
     if (!cv.dataset.built) { buildCalendar(); cv.dataset.built = '1'; }
   } else if (tab === 'queue') {
     buildPostingQueue();
+  } else if (tab === 'live') {
+    buildLiveQueue();
   }
 }
 
@@ -1623,6 +1631,100 @@ function exportCampSchedule() {
     rows.push([i+1, ds, '09:00', CAMP_POST_TYPES[i].type, csvCell(p.headline), csvCell(caption), fname, csvCell(p.hashtags), BDR_CAMPAIGN.module].join(','));
   });
   download(slug + '-meta_schedule.csv', rows.join('\n'), 'text/csv');
+}
+
+/* ── LIVE PUBLISHING QUEUE (Supabase-backed) ── */
+// Publishable/anon keys are safe to expose client-side by design — RLS
+// on content_queue restricts this key to read-only. Fill these in once
+// the Supabase project exists (see README → Environment variables).
+const SUPABASE_URL = 'REPLACE_WITH_SUPABASE_PROJECT_URL';
+const SUPABASE_PUBLISHABLE_KEY = 'REPLACE_WITH_SUPABASE_PUBLISHABLE_KEY';
+// Sent as a header on Publish Now — a light deterrent against stray
+// requests, not real auth. Fine for an internal-only tool; anyone who
+// can view this page's source can also see it.
+const DASHBOARD_API_SECRET = '';
+
+let liveSupabase = null;
+async function getLiveSupabase() {
+  if (liveSupabase) return liveSupabase;
+  if (SUPABASE_URL.startsWith('REPLACE_')) return null;
+  const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+  liveSupabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+  return liveSupabase;
+}
+
+const LIVE_STATUS_COLOR = {
+  draft: '#888', approved: '#3ba7ff', scheduled: 'var(--cyan)',
+  publishing: 'var(--yellow)', published: 'var(--green)', failed: '#e5484d',
+};
+
+async function buildLiveQueue() {
+  const view = document.getElementById('liveQueueView');
+  const supabase = await getLiveSupabase();
+
+  if (!supabase) {
+    view.innerHTML = `<div class="pq-note">Live queue isn't configured yet — set SUPABASE_URL / SUPABASE_PUBLISHABLE_KEY in index.html once the Supabase project exists.</div>`;
+    return;
+  }
+
+  view.innerHTML = `<div class="pq-note">Loading live queue…</div>`;
+  const { data, error } = await supabase
+    .from('content_queue')
+    .select('*')
+    .order('scheduled_at', { ascending: true, nullsFirst: false });
+
+  if (error) {
+    view.innerHTML = `<div class="pq-note">Couldn't load the live queue: ${error.message}</div>`;
+    return;
+  }
+
+  if (!data.length) {
+    view.innerHTML = `<div class="pq-note">Queue is empty — run "npm run seed:queue" to import posts.</div>`;
+    return;
+  }
+
+  view.innerHTML = `<div class="pq-header"><div class="pq-header-top"><h2>Live Publishing Queue</h2>
+    <button class="pq-meta-btn" onclick="buildLiveQueue()">↻ Refresh</button></div></div>
+    <div class="pq-list">${data.map(liveQueueRow).join('')}</div>`;
+}
+
+function liveQueueRow(p) {
+  const color = LIVE_STATUS_COLOR[p.status] || '#888';
+  const canPublish = !['publishing', 'published'].includes(p.status);
+  const meta = [
+    p.product, p.scheduled_at ? new Date(p.scheduled_at).toLocaleString() : null,
+    p.retry_count ? `retry ${p.retry_count}/${p.max_retries}` : null,
+  ].filter(Boolean).join(' · ');
+
+  return `<div class="pq-card" id="live-${p.id}">
+    <div class="pq-card-body">
+      <span class="status-pill active" style="border-color:${color};color:${color};background:transparent">${p.status}</span>
+      <strong style="margin-left:8px">${p.title || p.caption?.slice(0, 60) || 'Untitled'}</strong>
+      <div style="color:#999;font-size:11px;margin-top:4px">${meta}</div>
+      ${p.last_error ? `<div style="color:#e5484d;font-size:11px;margin-top:4px">${p.last_error}</div>` : ''}
+    </div>
+    <div class="pq-actions">
+      <button class="pq-sched-btn" ${canPublish ? '' : 'disabled'} onclick="livePublishNow('${p.id}', this)">Publish Now</button>
+    </div>
+  </div>`;
+}
+
+async function livePublishNow(id, btn) {
+  btn.disabled = true;
+  btn.textContent = 'Publishing…';
+  try {
+    const res = await fetch('/api/publish-now', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-dashboard-secret': DASHBOARD_API_SECRET },
+      body: JSON.stringify({ postId: id }),
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Publish failed');
+  } catch (err) {
+    alert('Publish Now failed: ' + err.message);
+  } finally {
+    buildLiveQueue();
+  }
 }
 
 loadPosts();
