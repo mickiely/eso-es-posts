@@ -1,0 +1,72 @@
+{
+  "name": "Eso Es Auto Poster — Buffer via Google Sheets",
+  "description": "Watches Google Sheets for Approved rows → exports a Buffer-ready row → updates sheet to Scheduled. No Meta API. No Canva API.",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:watchRows",
+      "version": 1,
+      "parameters": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "Posts",
+        "filterColumn": "status",
+        "filterValue": "Approved",
+        "limit": 5
+      },
+      "metadata": { "label": "Watch for Approved rows" }
+    },
+    {
+      "id": 2,
+      "module": "google-sheets:addRow",
+      "version": 1,
+      "parameters": {
+        "spreadsheetId": "{{BUFFER_STAGING_SHEET_ID}}",
+        "sheetName": "Buffer Queue",
+        "values": {
+          "date": "{{1.date}}",
+          "time": "{{1.time}}",
+          "channel": "{{1.channel}}",
+          "text": "{{1.caption}}\n\n{{1.hashtags}}",
+          "media_url": "{{1.media_url}}",
+          "product": "{{1.product}}",
+          "image_prompt": "{{1.image_prompt}}"
+        }
+      },
+      "metadata": { "label": "Copy row to Buffer staging sheet" }
+    },
+    {
+      "id": 3,
+      "module": "google-sheets:updateRow",
+      "version": 1,
+      "parameters": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "Posts",
+        "rowNumber": "{{1.rowNumber}}",
+        "values": {
+          "status": "Scheduled"
+        }
+      },
+      "metadata": { "label": "Update source sheet status → Scheduled" }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 1,
+      "autoCommit": true,
+      "sequential": true
+    }
+  },
+  "variables": {
+    "GOOGLE_SHEET_ID": "REPLACE — your Eso Es Content Schedule sheet ID",
+    "BUFFER_STAGING_SHEET_ID": "REPLACE — a second sheet used as Buffer staging queue (or same sheet, different tab)"
+  },
+  "_notes": [
+    "This blueprint intentionally avoids Meta API and Canva API.",
+    "Buffer does not have a native Make.com module for direct scheduling — use the CSV export from the approval page instead.",
+    "This blueprint is the upgrade path: sheet status drives the workflow, staging sheet holds the queue, you download and import to Buffer manually.",
+    "When Buffer releases a Make.com module, replace step 2 with a direct Buffer:createPost call."
+  ]
+}

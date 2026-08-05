@@ -1,0 +1,212 @@
+[
+  {
+    "post_id": 1,
+    "product": "Brand",
+    "title": "Eso Es. Made different. 🖤",
+    "canva_template": "eso-es-brand-square-v1",
+    "canva_prompt": "Bold Eso Es wordmark centred on dark background. Minimal. Brand colours only. No clutter."
+  },
+  {
+    "post_id": 2,
+    "product": "Gotcha",
+    "title": "Gotcha is the shot you didn't see coming. Every time. ☕",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Product flat lay: Gotcha pack on concrete, natural morning light, overhead angle. Bold shadow."
+  },
+  {
+    "post_id": 3,
+    "product": "WSUP",
+    "title": "WSUP. Your morning handled. 💪",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "WSUP product in hand, active lifestyle setting. Clean white background. Morning energy."
+  },
+  {
+    "post_id": 4,
+    "product": "Ripple",
+    "title": "Ripple. The wave you've been waiting for. 🌊",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Ripple product hero shot. Soft water texture background. Brand palette. Clean and bold."
+  },
+  {
+    "post_id": 5,
+    "product": "Brand",
+    "title": "Local flavour. Global attitude. This is Eso Es. 🇦🇺",
+    "canva_template": "eso-es-founder-square-v1",
+    "canva_prompt": "Warm lifestyle shot. Local café context or founder presence. Authentic, not polished."
+  },
+  {
+    "post_id": 6,
+    "product": "Brand",
+    "title": "Something new is coming. Stay close. 👀",
+    "canva_template": "eso-es-brand-square-v1",
+    "canva_prompt": "Dark teaser graphic. Blurred product silhouette. Question mark or shadow. High intrigue."
+  },
+  {
+    "post_id": 7,
+    "product": "Gotcha",
+    "title": "One sip. That's all it takes. Gotcha. ☕",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Close-up espresso pour or sip moment. Steam rising. Gotcha text overlay. Dark dramatic light."
+  },
+  {
+    "post_id": 8,
+    "product": "WSUP",
+    "title": "Wednesday check in: WSUP? ✌️",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "WSUP flat lay. Casual midweek energy. Warm natural light. Relaxed but intentional."
+  },
+  {
+    "post_id": 9,
+    "product": "Frother",
+    "title": "Froth it. Mean it. 🥛",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Frother in action. Milk foam close-up. Warm kitchen light. Rich texture visible."
+  },
+  {
+    "post_id": 10,
+    "product": "Brand",
+    "title": "End of week, start of something good. Eso Es. 🖤",
+    "canva_template": "eso-es-founder-square-v1",
+    "canva_prompt": "End-of-week energy. Group or street scene with product. Warm golden hour tones."
+  },
+  {
+    "post_id": 11,
+    "product": "Brand",
+    "title": "Not your average coffee brand. 🖤",
+    "canva_template": "eso-es-brand-square-v1",
+    "canva_prompt": "Side-by-side: ordinary coffee vs Eso Es. Bold contrast. Clean layout. Statement energy."
+  },
+  {
+    "post_id": 12,
+    "product": "Gotcha",
+    "title": "The element of surprise, bottled. Gotcha by Eso Es. ☕",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Gotcha product popping out of a bag or box. Surprise reveal angle. Playful energy."
+  },
+  {
+    "post_id": 13,
+    "product": "WSUP",
+    "title": "Your mornings just got sorted. WSUP by Eso Es.",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Morning routine flat lay. WSUP product as hero item. Coffee, phone, keys. Clean tabletop."
+  },
+  {
+    "post_id": 14,
+    "product": "Ripple",
+    "title": "Ripple — every morning a little different. 🌊",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Ripple product with water droplet or ripple effect overlay. Clean and graphic. Brand colours."
+  },
+  {
+    "post_id": 15,
+    "product": "Brand",
+    "title": "Behind every Eso Es product is a story. Come find ours. 🖤",
+    "canva_template": "eso-es-founder-square-v1",
+    "canva_prompt": "Founder working or behind the scenes. Raw, authentic. Not polished. Real environment."
+  },
+  {
+    "post_id": 16,
+    "product": "Brand",
+    "title": "Built different. By design. 🖤",
+    "canva_template": "eso-es-brand-square-v1",
+    "canva_prompt": "Abstract Eso Es logo treatment. Bold geometry. Dark background. Statement typography."
+  },
+  {
+    "post_id": 17,
+    "product": "Gotcha",
+    "title": "You weren't ready. Gotcha. ☕",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Reaction shot concept — surprised face or dropped jaw. Gotcha logo large. Fun energy."
+  },
+  {
+    "post_id": 18,
+    "product": "WSUP",
+    "title": "Early starter or slow mornings — WSUP has you. 💪",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Split image — early gym vs slow Sunday bed. WSUP logo centred. Both moods served."
+  },
+  {
+    "post_id": 19,
+    "product": "Frother",
+    "title": "Café-quality froth at home. No excuses. 🥛",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Latte art or frothed milk in a home mug. Frother product beside it. Aspirational but real."
+  },
+  {
+    "post_id": 20,
+    "product": "Brand",
+    "title": "Made here. Meant for everywhere. Eso Es. 🇦🇺",
+    "canva_template": "eso-es-founder-square-v1",
+    "canva_prompt": "Map graphic or Australian reference. Eso Es product over it. Pride and scale energy."
+  },
+  {
+    "post_id": 21,
+    "product": "Brand",
+    "title": "Eso Es. The name says it all. 🖤",
+    "canva_template": "eso-es-brand-square-v1",
+    "canva_prompt": "Typography-led post. Eso Es in large bold type. Translated meaning as subtext. Minimal."
+  },
+  {
+    "post_id": 22,
+    "product": "Gotcha",
+    "title": "Bold. Unexpected. Gotcha. ☕",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Bold graphic — Gotcha text at maximum scale. Minimal product. Maximum confidence."
+  },
+  {
+    "post_id": 23,
+    "product": "WSUP",
+    "title": "WSUP: Because mornings should work for you.",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Product beside a morning planner or to-do list. Organised energy. Clean light."
+  },
+  {
+    "post_id": 24,
+    "product": "Ripple",
+    "title": "Ripple — the coffee that keeps moving. 🌊",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Dynamic ripple product shot. Motion blur or layered effect. Energy and movement."
+  },
+  {
+    "post_id": 25,
+    "product": "Brand",
+    "title": "Friday feeling powered by Eso Es. 🙌",
+    "canva_template": "eso-es-founder-square-v1",
+    "canva_prompt": "Celebration moment. Product in hand, high energy. Friday light. Authentic smile."
+  },
+  {
+    "post_id": 26,
+    "product": "Brand",
+    "title": "Leak: something big is brewing at Eso Es. 👀",
+    "canva_template": "eso-es-brand-square-v1",
+    "canva_prompt": "Dark teaser. Partial product reveal. Heavy shadow. Curiosity and anticipation."
+  },
+  {
+    "post_id": 27,
+    "product": "Gotcha",
+    "title": "Gotcha again. ☕ #noregrets",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Second empty cup or repeat purchase visual. Humour. No regrets energy. Light tone."
+  },
+  {
+    "post_id": 28,
+    "product": "WSUP",
+    "title": "The last Wednesday excuse. WSUP sorted your mornings. 💪",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Before/after concept. Tired morning vs powered morning. WSUP as the turning point."
+  },
+  {
+    "post_id": 29,
+    "product": "Frother",
+    "title": "Upgrade your ritual. Eso Es Frother. 🥛",
+    "canva_template": "eso-es-product-square-v1",
+    "canva_prompt": "Ritual flat lay. Frother, quality milk, good mug. Morning ceremony feel. Quiet luxury."
+  },
+  {
+    "post_id": 30,
+    "product": "Brand",
+    "title": "This started local. It won't stay that way. Eso Es. 🖤",
+    "canva_template": "eso-es-founder-square-v1",
+    "canva_prompt": "Map or expansion graphic. Local pins radiating outward. Bold brand statement overlay."
+  }
+]

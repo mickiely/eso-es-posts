@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "product": "Brand",
+    "day": "Monday",
+    "caption": "Eso Es. Made different. 🖤",
+    "hashtags": "#EsoEs #MadeInAustralia #CoffeeCulture #Brand",
+    "image_prompt": "Bold Eso Es wordmark centred on dark background. Minimal. Brand colours only. No clutter.",
+    "canva_template": "eso-es-brand-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 2,
+    "product": "Gotcha",
+    "day": "Tuesday",
+    "caption": "Gotcha is the shot you didn't see coming. Every time. ☕",
+    "hashtags": "#Gotcha #EsoEs #CoffeeShot #Espresso",
+    "image_prompt": "Product flat lay: Gotcha pack on concrete, natural morning light, overhead angle. Bold shadow.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 3,
+    "product": "WSUP",
+    "day": "Wednesday",
+    "caption": "WSUP. Your morning handled. 💪",
+    "hashtags": "#WSUP #EsoEs #MorningRoutine #CoffeeCulture",
+    "image_prompt": "WSUP product in hand, active lifestyle setting. Clean white background. Morning energy.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 4,
+    "product": "Ripple",
+    "day": "Thursday",
+    "caption": "Ripple. The wave you've been waiting for. 🌊",
+    "hashtags": "#Ripple #EsoEs #CoffeeWave #MorningVibes",
+    "image_prompt": "Ripple product hero shot. Soft water texture background. Brand palette. Clean and bold.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 5,
+    "product": "Brand",
+    "day": "Friday",
+    "caption": "Local flavour. Global attitude. This is Eso Es. 🇦🇺",
+    "hashtags": "#EsoEs #MadeLocal #AustraliaCoffee #Founder",
+    "image_prompt": "Warm lifestyle shot. Local café context or founder presence. Authentic, not polished.",
+    "canva_template": "eso-es-founder-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 6,
+    "product": "Brand",
+    "day": "Monday",
+    "caption": "Something new is coming. Stay close. 👀",
+    "hashtags": "#EsoEs #ComingSoon #CoffeeDrop #Leak",
+    "image_prompt": "Dark teaser graphic. Blurred product silhouette. Question mark or shadow. High intrigue.",
+    "canva_template": "eso-es-brand-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 7,
+    "product": "Gotcha",
+    "day": "Tuesday",
+    "caption": "One sip. That's all it takes. Gotcha. ☕",
+    "hashtags": "#Gotcha #EsoEs #FirstSip #CoffeeCulture",
+    "image_prompt": "Close-up espresso pour or sip moment. Steam rising. Gotcha text overlay. Dark dramatic light.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 8,
+    "product": "WSUP",
+    "day": "Wednesday",
+    "caption": "Wednesday check in: WSUP? ✌️",
+    "hashtags": "#WSUP #EsoEs #Midweek #WednesdayVibes",
+    "image_prompt": "WSUP flat lay. Casual midweek energy. Warm natural light. Relaxed but intentional.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 9,
+    "product": "Frother",
+    "day": "Thursday",
+    "caption": "Froth it. Mean it. 🥛",
+    "hashtags": "#Frother #EsoEs #MilkFrother #HomeCafé",
+    "image_prompt": "Frother in action. Milk foam close-up. Warm kitchen light. Rich texture visible.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 10,
+    "product": "Brand",
+    "day": "Friday",
+    "caption": "End of week, start of something good. Eso Es. 🖤",
+    "hashtags": "#EsoEs #FridayFeeling #WeekendCoffee #Local",
+    "image_prompt": "End-of-week energy. Group or street scene with product. Warm golden hour tones.",
+    "canva_template": "eso-es-founder-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 11,
+    "product": "Brand",
+    "day": "Monday",
+    "caption": "Not your average coffee brand. 🖤",
+    "hashtags": "#EsoEs #CoffeeNotCoffee #DifferentByDesign #Brand",
+    "image_prompt": "Side-by-side: ordinary coffee vs Eso Es. Bold contrast. Clean layout. Statement energy.",
+    "canva_template": "eso-es-brand-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 12,
+    "product": "Gotcha",
+    "day": "Tuesday",
+    "caption": "The element of surprise, bottled. Gotcha by Eso Es. ☕",
+    "hashtags": "#Gotcha #EsoEs #Surprise #CoffeeGame",
+    "image_prompt": "Gotcha product popping out of a bag or box. Surprise reveal angle. Playful energy.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 13,
+    "product": "WSUP",
+    "day": "Wednesday",
+    "caption": "Your mornings just got sorted. WSUP by Eso Es.",
+    "hashtags": "#WSUP #EsoEs #MorningSorted #CoffeeRoutine",
+    "image_prompt": "Morning routine flat lay. WSUP product as hero item. Coffee, phone, keys. Clean tabletop.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 14,
+    "product": "Ripple",
+    "day": "Thursday",
+    "caption": "Ripple — every morning a little different. 🌊",
+    "hashtags": "#Ripple #EsoEs #MorningRipple #CoffeeMood",
+    "image_prompt": "Ripple product with water droplet or ripple effect overlay. Clean and graphic. Brand colours.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 15,
+    "product": "Brand",
+    "day": "Friday",
+    "caption": "Behind every Eso Es product is a story. Come find ours. 🖤",
+    "hashtags": "#EsoEs #OurStory #Founder #LocalBrand",
+    "image_prompt": "Founder working or behind the scenes. Raw, authentic. Not polished. Real environment.",
+    "canva_template": "eso-es-founder-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 16,
+    "product": "Brand",
+    "day": "Monday",
+    "caption": "Built different. By design. 🖤",
+    "hashtags": "#EsoEs #BuiltDifferent #ByDesign #CoffeeBrand",
+    "image_prompt": "Abstract Eso Es logo treatment. Bold geometry. Dark background. Statement typography.",
+    "canva_template": "eso-es-brand-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 17,
+    "product": "Gotcha",
+    "day": "Tuesday",
+    "caption": "You weren't ready. Gotcha. ☕",
+    "hashtags": "#Gotcha #EsoEs #Unexpected #CoffeeAlert",
+    "image_prompt": "Reaction shot concept — surprised face or dropped jaw. Gotcha logo large. Fun energy.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 18,
+    "product": "WSUP",
+    "day": "Wednesday",
+    "caption": "Early starter or slow mornings — WSUP has you. 💪",
+    "hashtags": "#WSUP #EsoEs #EarlyMorning #SlowMorning",
+    "image_prompt": "Split image — early gym vs slow Sunday bed. WSUP logo centred. Both moods served.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 19,
+    "product": "Frother",
+    "day": "Thursday",
+    "caption": "Café-quality froth at home. No excuses. 🥛",
+    "hashtags": "#Frother #EsoEs #HomeCafé #FrothGoals",
+    "image_prompt": "Latte art or frothed milk in a home mug. Frother product beside it. Aspirational but real.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 20,
+    "product": "Brand",
+    "day": "Friday",
+    "caption": "Made here. Meant for everywhere. Eso Es. 🇦🇺",
+    "hashtags": "#EsoEs #MadeHere #AustraliaMade #CoffeeForAll",
+    "image_prompt": "Map graphic or Australian reference. Eso Es product over it. Pride and scale energy.",
+    "canva_template": "eso-es-founder-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 21,
+    "product": "Brand",
+    "day": "Monday",
+    "caption": "Eso Es. The name says it all. 🖤",
+    "hashtags": "#EsoEs #TheNameSaysItAll #CoffeeIdentity #Brand",
+    "image_prompt": "Typography-led post. Eso Es in large bold type. Translated meaning as subtext. Minimal.",
+    "canva_template": "eso-es-brand-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 22,
+    "product": "Gotcha",
+    "day": "Tuesday",
+    "caption": "Bold. Unexpected. Gotcha. ☕",
+    "hashtags": "#Gotcha #EsoEs #Bold #CoffeeBold",
+    "image_prompt": "Bold graphic — Gotcha text at maximum scale. Minimal product. Maximum confidence.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 23,
+    "product": "WSUP",
+    "day": "Wednesday",
+    "caption": "WSUP: Because mornings should work for you.",
+    "hashtags": "#WSUP #EsoEs #MorningRoutine #WorkForYou",
+    "image_prompt": "Product beside a morning planner or to-do list. Organised energy. Clean light.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 24,
+    "product": "Ripple",
+    "day": "Thursday",
+    "caption": "Ripple — the coffee that keeps moving. 🌊",
+    "hashtags": "#Ripple #EsoEs #KeepMoving #CoffeeFlow",
+    "image_prompt": "Dynamic ripple product shot. Motion blur or layered effect. Energy and movement.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 25,
+    "product": "Brand",
+    "day": "Friday",
+    "caption": "Friday feeling powered by Eso Es. 🙌",
+    "hashtags": "#EsoEs #FridayFuelled #WeekendReady #CoffeePowered",
+    "image_prompt": "Celebration moment. Product in hand, high energy. Friday light. Authentic smile.",
+    "canva_template": "eso-es-founder-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 26,
+    "product": "Brand",
+    "day": "Monday",
+    "caption": "Leak: something big is brewing at Eso Es. 👀",
+    "hashtags": "#EsoEs #Leak #ComingNext #CoffeeDrop",
+    "image_prompt": "Dark teaser. Partial product reveal. Heavy shadow. Curiosity and anticipation.",
+    "canva_template": "eso-es-brand-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 27,
+    "product": "Gotcha",
+    "day": "Tuesday",
+    "caption": "Gotcha again. ☕ #noregrets",
+    "hashtags": "#Gotcha #EsoEs #NoRegrets #CoffeeAgain",
+    "image_prompt": "Second empty cup or repeat purchase visual. Humour. No regrets energy. Light tone.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 28,
+    "product": "WSUP",
+    "day": "Wednesday",
+    "caption": "The last Wednesday excuse. WSUP sorted your mornings. 💪",
+    "hashtags": "#WSUP #EsoEs #NoMoreExcuses #MorningWin",
+    "image_prompt": "Before/after concept. Tired morning vs powered morning. WSUP as the turning point.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 29,
+    "product": "Frother",
+    "day": "Thursday",
+    "caption": "Upgrade your ritual. Eso Es Frother. 🥛",
+    "hashtags": "#Frother #EsoEs #UpgradeYourRitual #CoffeeRitual",
+    "image_prompt": "Ritual flat lay. Frother, quality milk, good mug. Morning ceremony feel. Quiet luxury.",
+    "canva_template": "eso-es-product-square-v1",
+    "status": "Image Needed"
+  },
+  {
+    "id": 30,
+    "product": "Brand",
+    "day": "Friday",
+    "caption": "This started local. It won't stay that way. Eso Es. 🖤",
+    "hashtags": "#EsoEs #LocalToGlobal #AustraliaCoffee #Watch",
+    "image_prompt": "Map or expansion graphic. Local pins radiating outward. Bold brand statement overlay.",
+    "canva_template": "eso-es-founder-square-v1",
+    "status": "Image Needed"
+  }
+]

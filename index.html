@@ -182,7 +182,7 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .card[data-status="Posted"] .card-status-bar{background:var(--green)}
 
 /* ── CALENDAR VIEW ── */
-#calendarView{display:none;padding:28px}
+#calendarView{padding:28px}
 #calendarView.visible{display:block}
 .cal-month{margin-bottom:40px}
 .cal-month-title{font-size:14px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;padding:10px 16px;background:var(--black);color:var(--yellow);display:inline-block}
@@ -226,7 +226,7 @@ body.pm .card:hover .cv-overlay{opacity:1}
 }
 
 /* ── POSTING QUEUE ── */
-#postingView{display:none;padding:28px}
+#postingView{padding:28px}
 #postingView.visible{display:block}
 .pq-header{background:var(--black);color:var(--cream);padding:16px 20px;margin-bottom:24px}
 .pq-header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px}
@@ -267,6 +267,23 @@ body.pm .card:hover .cv-overlay{opacity:1}
 .pq-sched-btn{margin-left:auto;background:transparent;color:var(--green);border:2px solid var(--green);padding:7px 13px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .15s;white-space:nowrap}
 .pq-sched-btn:hover{background:var(--green);color:var(--black)}
 .pq-sched-btn.done{background:var(--green);color:var(--black)}
+/* ── PLATFORM CHIPS ── */
+.plat-row{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}
+.plat-chip{background:transparent;border:1.5px solid #ccc;color:#aaa;padding:3px 9px;font-family:'Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.plat-chip:hover{border-color:#888;color:#888}
+.plat-chip.active[data-plat="Instagram"]{background:#E1306C;color:#fff;border-color:#E1306C}
+.plat-chip.active[data-plat="Facebook"]{background:#1877F2;color:#fff;border-color:#1877F2}
+.plat-chip.active[data-plat="LinkedIn"]{background:#0A66C2;color:#fff;border-color:#0A66C2}
+.graphic-btn{background:transparent;border:1.5px solid #ccc;color:#aaa;padding:3px 9px;font-family:'Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .15s;margin-top:5px;width:100%;text-align:left}
+.graphic-btn:hover{border-color:#888;color:#888}
+.graphic-btn.done{background:var(--green);color:var(--black);border-color:var(--green)}
+/* ── QUEUE SECTIONS ── */
+.pq-section-head{padding:10px 20px;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin:20px 0 14px;display:flex;align-items:center;gap:10px}
+.pq-section-head:first-child{margin-top:0}
+.pq-section-head.yellow{background:var(--yellow);color:var(--black)}
+.pq-section-head.red{background:var(--red);color:#fff}
+.pq-section-head.dim{background:#222;color:#555}
+.pq-missing-badge{background:var(--red);color:#fff;font-size:8px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;flex-shrink:0;border:none}
 @media(max-width:700px){
   .pq-body{grid-template-columns:1fr}
   .pq-col:first-child{border-right:none;border-bottom:2px solid var(--black)}
@@ -274,56 +291,324 @@ body.pm .card:hover .cv-overlay{opacity:1}
   .pq-day-slot{flex:none}
   #postingView{padding:12px}
 }
+
+/* ── TOP BAR ── */
+.top-bar{background:var(--black);border-bottom:4px solid var(--yellow);display:flex;align-items:stretch;position:sticky;top:0;z-index:100;height:50px}
+.tb-brand{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--cream);padding:0 18px;white-space:nowrap;border-right:1px solid #2a2a2a;display:flex;align-items:center;flex-shrink:0}
+.tabs{display:flex;flex:1}
+.tab{background:transparent;border:none;border-right:1px solid #222;color:#555;padding:0 18px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;height:100%;transition:all .15s;white-space:nowrap}
+.tab:hover{color:#888;background:#111}
+.tab.active{background:var(--yellow);color:var(--black)}
+.tb-utils{display:flex;gap:5px;padding:0 12px;border-left:1px solid #2a2a2a;align-items:center;flex-shrink:0}
+.tb-btn{background:transparent;border:1.5px solid #333;color:#666;padding:4px 9px;font-family:'Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tb-btn:hover{border-color:var(--yellow);color:var(--yellow)}
+.tb-btn.tb-yellow{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
+.tb-btn.tb-present{border-color:#444;color:#555}
+.tb-btn.tb-present:hover{border-color:var(--red);color:var(--red)}
+body.pm .tb-btn.tb-present{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* ── VIEWS ── */
+.views{position:relative}
+.view-panel{display:none}
+.view-panel.active{display:block}
+
+/* ── COMPONENTS CONTROLS ── */
+.comp-controls{background:#111;padding:8px 20px;display:flex;gap:5px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #2a2a2a;position:sticky;top:50px;z-index:90}
+.comp-stats{font-size:9px;color:#444;letter-spacing:1px;margin-left:auto;display:flex;gap:14px;flex-wrap:wrap}
+.comp-stats strong{color:var(--yellow)}
+
+/* ── BUILDER LAYOUT ── */
+.builder-layout{display:grid;grid-template-columns:15% 1fr 30%;height:calc(100vh - 54px);overflow:hidden}
+
+/* LEFT NAV */
+.bdr-left{background:#0d0d0d;overflow-y:auto;padding:12px 10px;border-right:1px solid #1a1a1a;flex-shrink:0}
+.bdr-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#333;margin:16px 0 6px;display:block}
+.bdr-label:first-child{margin-top:0}
+.mod-btn{display:block;width:100%;background:transparent;border:2px solid #222;color:#444;padding:9px 10px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:left;margin-bottom:4px;transition:all .15s}
+.mod-btn:hover{border-color:#555;color:#777}
+.mod-btn.gotcha.active{border-color:var(--red);color:var(--red);background:rgba(230,57,70,.12)}
+.mod-btn.ripple.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,180,216,.12)}
+.mod-btn.frother.active{border-color:var(--green);color:var(--green);background:rgba(45,198,83,.12)}
+.mod-btn.wsup.active{border-color:var(--purple);color:var(--purple);background:rgba(123,47,190,.12)}
+.type-btn{display:block;width:100%;background:transparent;border:1.5px solid #1e1e1e;color:#3a3a3a;padding:7px 10px;font-family:'Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:left;margin-bottom:3px;transition:all .15s}
+.type-btn:hover{border-color:#3a3a3a;color:#666}
+.type-btn.active{background:var(--black);color:var(--cream);border-color:var(--black)}
+
+/* CENTRE CANVAS */
+.bdr-canvas{background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:10px;gap:8px;position:relative}
+.bdr-canvas-wrap{aspect-ratio:1;width:100%;max-width:min(calc(100% - 0px),calc(100vh - 80px));position:relative;flex-shrink:0}
+.bdr-canvas-wrap .card{width:100%!important;height:100%!important;cursor:default;box-shadow:10px 10px 0 rgba(0,0,0,.6)!important}
+.bdr-canvas-wrap .card:hover{transform:none!important;box-shadow:10px 10px 0 rgba(0,0,0,.6)!important}
+.bdr-canvas-wrap .card-visual{height:100%!important;border-bottom:none!important}
+.bdr-canvas-wrap .card-body{display:none!important}
+.bdr-canvas-wrap .cv-headline{font-size:clamp(22px,4.2cqw,60px)!important}
+.bdr-canvas-wrap .cv-subtext{font-size:clamp(8px,1.2cqw,16px)!important}
+.bdr-canvas-wrap .cv-cta{height:clamp(36px,6cqw,72px)!important;font-size:clamp(9px,1.4cqw,18px)!important}
+.bdr-canvas-wrap .cv-stamp{font-size:clamp(7px,1cqw,13px)!important}
+.bdr-canvas-wrap .cv-sticker{font-size:clamp(8px,1.2cqw,15px)!important;padding:clamp(3px,0.6cqw,8px) clamp(8px,1.5cqw,20px) clamp(3px,0.6cqw,8px) clamp(6px,1.1cqw,14px)!important}
+.bdr-canvas-wrap{container-type:inline-size}
+
+/* variant strip */
+.bdr-variants{display:flex;gap:8px;flex-shrink:0}
+.bdr-vthumb{width:48px;height:48px;border:2px solid #2a2a2a;cursor:pointer;overflow:hidden;position:relative;flex-shrink:0;opacity:.5;transition:all .15s}
+.bdr-vthumb:hover,.bdr-vthumb.active{border-color:var(--yellow);opacity:1}
+.bdr-vthumb-inner{position:absolute;inset:0;transform-origin:top left}
+.bdr-vthumb-label{font-size:7px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:#555;text-align:center;margin-top:2px}
+
+/* CANVAS META ROW */
+.bdr-canvas-meta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.bdr-meta-badge{font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid #2a2a2a;color:#444}
+.bdr-meta-badge.active-mod{border-color:var(--yellow);color:var(--yellow)}
+
+/* RIGHT FIELDS */
+.bdr-fields{background:#0d0d0d;border-left:1px solid #1a1a1a;display:flex;flex-direction:column;overflow:hidden}
+.bdr-fields-scroll{flex:1;overflow-y:auto;padding:14px 14px 8px}
+.bdr-field-group{margin-bottom:10px}
+.bdr-field-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#333;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.bdr-field-label .fl-badge{font-size:8px;color:#222;border:1px solid #222;padding:0 5px;font-weight:700;letter-spacing:1px}
+.bdr-input,.bdr-textarea{width:100%;background:#111;border:1.5px solid #1e1e1e;border-left:3px solid #2a2a2a;padding:7px 10px;font-family:'Courier New',monospace;font-size:11px;color:#888;outline:none;transition:all .15s;line-height:1.4}
+.bdr-input:focus,.bdr-textarea:focus{border-left-color:var(--yellow);color:#ddd;background:#161616}
+.bdr-input::placeholder,.bdr-textarea::placeholder{color:#2a2a2a}
+.bdr-textarea{min-height:72px;line-height:1.65;resize:vertical}
+.bdr-stat-input{border-left-color:var(--cyan)!important;font-size:18px!important;font-weight:900;color:var(--cyan)!important}
+.bdr-stat-input:focus{color:var(--cyan)!important}
+
+/* ACTIONS */
+.bdr-actions{padding:12px 14px;border-top:1px solid #1a1a1a;display:flex;flex-direction:column;gap:6px;overflow-y:auto;max-height:56%}
+
+/* ── CAMPAIGN ── */
+.bdr-camp-input{width:100%;background:#0d0d0d;border:1.5px solid #1e1e1e;border-left:3px solid var(--yellow);padding:7px 10px;font-family:'Courier New',monospace;font-size:10px;color:#777;outline:none;transition:all .15s}
+.bdr-camp-input:focus{border-left-color:var(--yellow);color:#bbb}
+.bdr-camp-input::placeholder{color:#252525}
+.bdr-camp-btn{display:block;width:100%;background:#0d0d0d;border:2px solid #2a2a2a;color:#555;padding:9px 12px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;text-align:center}
+.bdr-camp-btn:hover:not(:disabled){border-color:var(--yellow);color:var(--yellow)}
+.bdr-camp-btn:disabled{cursor:wait}
+.bdr-camp-btn.loading{border-color:var(--yellow);color:var(--yellow);animation:bdr-pulse 1s infinite}
+.bdr-camp-btn.done{border-color:var(--green);color:var(--green)}
+.bdr-camp-posts{display:none;flex-direction:column;gap:5px}
+.bdr-camp-posts.visible{display:flex}
+.bdr-camp-label{font-size:8px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#2a2a2a}
+.bdr-camp-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.bdr-camp-post{background:transparent;border:1.5px solid #1e1e1e;color:#3a3a3a;padding:6px 2px;font-family:'Courier New',monospace;font-size:7.5px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .15s;line-height:1.5}
+.bdr-camp-post:hover{border-color:#444;color:#666}
+.bdr-camp-post.active{background:var(--black);color:var(--cream);border-color:var(--black)}
+.bdr-camp-export-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px}
+.bdr-camp-exp-btn{background:transparent;border:1.5px solid #1e1e1e;color:#333;padding:5px 3px;font-family:'Courier New',monospace;font-size:8px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .15s}
+.bdr-camp-exp-btn:hover{border-color:#444;color:#666}
+.bdr-act-btn{display:block;width:100%;border:2px solid var(--black);padding:9px 12px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;text-align:center;background:var(--black);color:var(--cream)}
+.bdr-act-btn:hover{background:#222}
+.bdr-act-btn.primary{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
+.bdr-act-btn.primary:hover{background:#e0b800;border-color:#e0b800}
+.bdr-act-btn.outline{background:transparent;color:#666;border-color:#222}
+.bdr-act-btn.outline:hover{border-color:#555;color:#999}
+.bdr-act-btn.copied{background:var(--green)!important;color:var(--black)!important;border-color:var(--green)!important}
+.bdr-act-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+
+/* ── VARIANT GENERATE ── */
+.bdr-gen-sep{height:1px;background:#1a1a1a;margin:6px 0}
+.bdr-gen-btn{display:block;width:100%;background:#111;border:2px solid #2a2a2a;color:#555;padding:9px 12px;font-family:'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;text-align:center}
+.bdr-gen-btn:hover:not(:disabled){border-color:var(--purple);color:var(--purple)}
+.bdr-gen-btn:disabled{cursor:wait}
+.bdr-gen-btn.loading{border-color:var(--yellow);color:var(--yellow);animation:bdr-pulse 1s infinite}
+.bdr-gen-btn.done{border-color:var(--green);color:var(--green)}
+@keyframes bdr-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.bdr-var-nav{display:none;align-items:center;gap:0;border:1.5px solid #222;overflow:hidden}
+.bdr-var-nav.visible{display:flex}
+.bdr-var-arrow{background:transparent;border:none;border-right:1.5px solid #222;color:#555;width:34px;height:34px;font-size:16px;cursor:pointer;font-family:'Courier New',monospace;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.bdr-var-arrow:last-of-type{border-right:none;border-left:1.5px solid #222}
+.bdr-var-arrow:hover{background:#1a1a1a;color:var(--yellow)}
+.bdr-var-counter{font-size:9px;font-weight:900;letter-spacing:1px;color:#555;flex:1;text-align:center;text-transform:uppercase}
+.bdr-var-save{background:transparent;border:none;border-left:1.5px solid #222;color:#333;cursor:pointer;font-family:'Courier New',monospace;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:0 8px;height:34px;transition:color .15s;flex-shrink:0}
+.bdr-var-save:hover{color:#666}
+.bdr-apikey-wrap{border-top:1px solid #1a1a1a;padding-top:10px;margin-top:4px}
+.bdr-apikey-row{display:flex;gap:4px}
+.bdr-apikey-input{flex:1;background:#0d0d0d;border:1.5px solid #1e1e1e;border-left:3px solid var(--purple);padding:6px 8px;font-family:'Courier New',monospace;font-size:9px;color:#666;outline:none;min-width:0}
+.bdr-apikey-input:focus{border-left-color:var(--yellow);color:#999}
+.bdr-apikey-save{background:transparent;border:1.5px solid #2a2a2a;color:#444;padding:6px 9px;font-family:'Courier New',monospace;font-size:9px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all .15s;white-space:nowrap}
+.bdr-apikey-save:hover{border-color:var(--green);color:var(--green)}
+@media(max-width:900px){.builder-layout{grid-template-columns:13% 1fr 28%}.tb-brand{display:none}}
+@media(max-width:640px){
+  .builder-layout{grid-template-columns:1fr;height:auto}
+  .bdr-canvas{min-height:70vw}
+  .top-bar{height:auto;flex-wrap:wrap;padding:4px 0}
+  .tabs{flex-wrap:wrap}
+  .tab{padding:8px 12px}
+  .comp-controls{top:auto}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="hd-left">
-    <h1>Eso Es — Content Engine</h1>
-    <span id="headerSub">Loading posts… // esoes.com.au</span>
+<div class="top-bar">
+  <div class="tb-brand">ESO ES // ENGINE</div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="components" onclick="setTab('components')">Components</button>
+    <button class="tab" data-tab="builder" onclick="setTab('builder')">Post Builder</button>
+    <button class="tab" data-tab="calendar" onclick="setTab('calendar')">Calendar</button>
+    <button class="tab" data-tab="queue" onclick="setTab('queue')">Queue</button>
+  </nav>
+  <div class="tb-utils">
+    <button class="tb-btn" onclick="exportCSV()">↓ CSV</button>
+    <button class="tb-btn" onclick="exportCanva()">↓ Canva</button>
+    <button class="tb-btn" onclick="exportMetaCSV()">↓ Meta</button>
+    <button class="tb-btn tb-yellow" onclick="exportPublishPack()">⬇ Pack</button>
+    <button class="tb-btn tb-present" id="presentBtn" onclick="togglePresent()">◼ Present</button>
   </div>
-  <div class="hd-right">
-    <button class="hd-btn" onclick="exportCSV()">↓ Export CSV</button>
-    <button class="hd-btn" onclick="exportCanva()">↓ Canva Prompts</button>
-    <button class="present-btn" id="presentBtn" onclick="togglePresent()">◼ Present</button>
+</div>
+
+<div class="views">
+
+  <!-- COMPONENTS TAB -->
+  <div class="view-panel active" id="v-components">
+    <div class="comp-controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn ripple" data-filter="Ripple">Ripple</button>
+      <button class="filter-btn gotcha" data-filter="Gotcha">Gotcha</button>
+      <button class="filter-btn frother" data-filter="Frother">Frother</button>
+      <button class="filter-btn wsup" data-filter="WSUP">WSUP</button>
+      <button class="filter-btn" data-filter="Brand">Brand</button>
+      <button class="filter-btn" data-filter="All Products">Multi</button>
+      <div class="comp-stats">
+        <span>Posts: <strong id="count">—</strong></span>
+        <span>Status: <strong id="statusLabel">Loading…</strong></span>
+        <span id="headerSub" style="color:#333"></span>
+      </div>
+    </div>
+    <div class="grid" id="grid">
+      <div class="no-results" id="noResults">No posts match this filter.</div>
+    </div>
   </div>
-</header>
 
-<div class="controls">
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn ripple" data-filter="Ripple">Ripple</button>
-  <button class="filter-btn gotcha" data-filter="Gotcha">Gotcha</button>
-  <button class="filter-btn frother" data-filter="Frother">Frother</button>
-  <button class="filter-btn wsup" data-filter="WSUP">WSUP</button>
-  <button class="filter-btn" data-filter="Brand">Brand</button>
-  <button class="filter-btn" data-filter="All Products">Multi</button>
-  <div class="ctrl-sep"></div>
-  <button class="view-btn active" id="viewGrid" onclick="setView('grid')">Grid</button>
-  <button class="view-btn" id="viewCal" onclick="setView('calendar')">Calendar</button>
-  <button class="view-btn" id="viewPost" onclick="setView('posting')">Ready to Post</button>
-</div>
+  <!-- POST BUILDER TAB -->
+  <div class="view-panel" id="v-builder">
+    <div class="builder-layout">
 
-<div class="stats-bar">
-  <div>Posts: <strong id="count">—</strong></div>
-  <div>Platform: <strong>Instagram + LinkedIn</strong></div>
-  <div>Format: <strong>Square / Feed Graphic</strong></div>
-  <div>Status: <strong id="statusLabel">Loading…</strong></div>
-</div>
+      <!-- LEFT: module + card type -->
+      <div class="bdr-left">
+        <span class="bdr-label">Module</span>
+        <button class="mod-btn gotcha active" data-mod="Gotcha" onclick="setBdrModule('Gotcha')">◎ GOTCHA</button>
+        <button class="mod-btn ripple" data-mod="Ripple" onclick="setBdrModule('Ripple')">≋ RIPPLE</button>
+        <button class="mod-btn frother" data-mod="Frother" onclick="setBdrModule('Frother')">◈ FROTHER</button>
+        <button class="mod-btn wsup" data-mod="WSUP" onclick="setBdrModule('WSUP')">▣ WSUP</button>
+        <span class="bdr-label">Card Type</span>
+        <button class="type-btn active" data-type="problem" onclick="setBdrType('problem')">Problem</button>
+        <button class="type-btn" data-type="stat" onclick="setBdrType('stat')">Statistic</button>
+        <button class="type-btn" data-type="proof" onclick="setBdrType('proof')">Proof</button>
+        <button class="type-btn" data-type="process" onclick="setBdrType('process')">Process</button>
+        <button class="type-btn" data-type="screenshot" onclick="setBdrType('screenshot')">Screenshot</button>
+        <button class="type-btn" data-type="cta" onclick="setBdrType('cta')">CTA</button>
+      </div>
 
-<div class="gen-banner">
-  <div class="gen-banner-text">
-    <strong>GENERATE NEW POSTS</strong> &nbsp;—&nbsp; Run <code>node generate.js</code> to create fresh content via Claude API
+      <!-- CENTRE: large live preview -->
+      <div class="bdr-canvas">
+        <div class="bdr-canvas-meta">
+          <span class="bdr-meta-badge active-mod" id="bdrMetaMod">GOTCHA</span>
+          <span class="bdr-meta-badge" id="bdrMetaType">PROBLEM</span>
+          <span class="bdr-meta-badge">1080 × 1080</span>
+        </div>
+        <div class="bdr-canvas-wrap">
+          <div class="card" id="bdrPreviewCard" data-product="Gotcha" data-layout="b" data-status="Draft">
+            <div class="card-visual">
+              <div class="cv-bg"></div><div class="cv-dots"></div><div class="cv-stripes"></div>
+              <div class="cv-slash"></div><div class="cv-scanlines"></div><div class="cv-inner-frame"></div>
+              <div class="cv-stamp">PREVIEW</div>
+              <div class="cv-sticker">GOTCHA</div>
+              <div class="cv-main">
+                <div class="cv-headline" id="bdrPrevHeadline">MISSED CALL? GOTCHA.</div>
+                <div class="cv-subtext" id="bdrPrevSubtext">Instant SMS reply. Lead saved.</div>
+              </div>
+              <div class="cv-icon">◎</div>
+              <div class="cv-cta"><span id="bdrPrevCta">DM "GOTCHA"</span><span class="cv-cta-arrow">→</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="bdr-variants" id="bdrVariants"></div>
+      </div>
+
+      <!-- RIGHT: content fields + actions -->
+      <div class="bdr-fields">
+        <div class="bdr-fields-scroll">
+          <div class="bdr-field-group">
+            <div class="bdr-field-label">Headline <span class="fl-badge">CARD</span></div>
+            <input class="bdr-input" id="bdrHeadline" type="text" value="MISSED CALL? GOTCHA." oninput="onBdrField('headline',this.value)" placeholder="MAIN HEADLINE">
+          </div>
+          <div class="bdr-field-group">
+            <div class="bdr-field-label">Subtext <span class="fl-badge">CARD</span></div>
+            <input class="bdr-input" id="bdrTagline" type="text" value="Instant SMS reply. Lead saved." oninput="onBdrField('tagline',this.value)" placeholder="Short card subtext">
+          </div>
+          <div class="bdr-field-group" id="bdrStatGroup" style="display:none">
+            <div class="bdr-field-label">Statistic <span class="fl-badge">CARD</span></div>
+            <input class="bdr-input bdr-stat-input" id="bdrStat" type="text" placeholder="68%" oninput="onBdrField('stat',this.value)">
+          </div>
+          <div class="bdr-field-group" id="bdrProofGroup" style="display:none">
+            <div class="bdr-field-label">Proof / Quote <span class="fl-badge">CARD</span></div>
+            <textarea class="bdr-textarea" id="bdrProof" rows="3" placeholder='"Quote or social proof here."' oninput="onBdrField('proof',this.value)"></textarea>
+          </div>
+          <div class="bdr-field-group">
+            <div class="bdr-field-label">CTA <span class="fl-badge">CARD</span></div>
+            <input class="bdr-input" id="bdrCta" type="text" value='DM "GOTCHA"' oninput="onBdrField('cta',this.value)" placeholder='DM "KEYWORD"'>
+          </div>
+          <div class="bdr-field-group">
+            <div class="bdr-field-label">Body Copy <span class="fl-badge">CAPTION</span></div>
+            <textarea class="bdr-textarea" id="bdrBody" rows="6" placeholder="Write your caption body here.&#10;&#10;Missed calls are not harmless.&#10;They are warm leads walking out the back door.&#10;&#10;One missed call = one lost job."></textarea>
+          </div>
+          <div class="bdr-field-group">
+            <div class="bdr-field-label">Hashtags <span class="fl-badge">CAPTION</span></div>
+            <textarea class="bdr-textarea" id="bdrHashtags" rows="2" placeholder="#esoes #gotcha #missedcalls #smallbusiness">#esoes #gotcha #missedcalls #localbusiness #smallbusiness</textarea>
+          </div>
+          <div id="bdrApiKeyGroup" style="display:none">
+            <div class="bdr-apikey-wrap">
+              <div class="bdr-field-label">Anthropic API Key</div>
+              <div class="bdr-apikey-row">
+                <input class="bdr-apikey-input" id="bdrApiKey" type="password" placeholder="sk-ant-api03-…">
+                <button class="bdr-apikey-save" onclick="saveBdrApiKey()">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bdr-actions">
+          <button class="bdr-act-btn primary" onclick="copyBdrCaption(this)">Copy Caption</button>
+          <div class="bdr-act-row">
+            <button class="bdr-act-btn" onclick="copyBdrPrompt(this)">Copy Image Prompt</button>
+            <button class="bdr-act-btn outline" onclick="exportBdrPack()">↓ Export Pack</button>
+          </div>
+          <div class="bdr-gen-sep"></div>
+          <button class="bdr-gen-btn" id="bdrGenBtn" onclick="generateVariants()">⚡ Generate Variants</button>
+          <div class="bdr-var-nav" id="bdrVarNav">
+            <button class="bdr-var-arrow" onclick="cycleVariant(-1)">←</button>
+            <div class="bdr-var-counter" id="bdrVarCounter">VARIANT 1 / 5</div>
+            <button class="bdr-var-arrow" onclick="cycleVariant(1)">→</button>
+            <button class="bdr-var-save" onclick="saveBdrVariants()" title="Download variants.json">↓ json</button>
+          </div>
+          <div class="bdr-gen-sep"></div>
+          <input class="bdr-camp-input" id="bdrCampTopic" placeholder="Campaign topic: Missed Calls, Reviews…" maxlength="60">
+          <button class="bdr-camp-btn" id="bdrCampBtn" onclick="generateCampaign()">◼ Generate Campaign</button>
+          <div class="bdr-camp-posts" id="bdrCampPosts">
+            <div class="bdr-camp-label" id="bdrCampName">CAMPAIGN</div>
+            <div class="bdr-camp-strip" id="bdrCampStrip"></div>
+            <div class="bdr-camp-export-row">
+              <button class="bdr-camp-exp-btn" onclick="exportCampCaptions()">↓ Captions</button>
+              <button class="bdr-camp-exp-btn" onclick="exportCampPrompts()">↓ Prompts</button>
+              <button class="bdr-camp-exp-btn" onclick="exportCampSchedule()">↓ Schedule</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <button class="gen-btn" onclick="alert('Run: node generate.js\n\nRequires ANTHROPIC_API_KEY in .env')">⚡ How to Generate</button>
-</div>
 
-<div class="grid" id="grid">
-  <div class="no-results" id="noResults">No posts match this filter.</div>
-</div>
+  <!-- CALENDAR TAB -->
+  <div class="view-panel" id="v-calendar">
+    <div id="calendarView"></div>
+  </div>
 
-<div id="calendarView"></div>
-<div id="postingView"></div>
+  <!-- QUEUE TAB -->
+  <div class="view-panel" id="v-queue">
+    <div id="postingView"></div>
+  </div>
+
+</div>
 
 <script src="data/posts.js"></script>
 <script>
@@ -410,6 +695,10 @@ function buildCard(p) {
     <div class="status-row">
       ${STATUSES.map(s => `<button class="status-pill${status===s?' active':''}" data-s="${s}" onclick="setStatus(${p.num},'${s}')">${s}</button>`).join('')}
     </div>
+    <div class="plat-row">
+      ${['Instagram','Facebook','LinkedIn'].map(plat => { const on=getPlatforms(p.num).includes(plat); return `<button class="plat-chip${on?' active':''}" data-plat="${plat}" onclick="togglePlatChip(${p.num},'${plat}',this)">${plat}</button>`; }).join('')}
+    </div>
+    <button class="graphic-btn${hasGraphic(p.num)?' done':''}" onclick="toggleGraphic(${p.num})">${hasGraphic(p.num)?'✓ Graphic Ready':'No Graphic'}</button>
   </div>
 </div>`;
 }
@@ -505,7 +794,7 @@ function setView(view) {
     if (!calView.dataset.built) { buildCalendar(); calView.dataset.built = '1'; }
   } else if (view === 'posting') {
     calView.classList.remove('visible'); postView.classList.add('visible');
-    if (!postView.dataset.built) { buildPostingQueue(); postView.dataset.built = '1'; }
+    buildPostingQueue();
   } else {
     calView.classList.remove('visible'); postView.classList.remove('visible');
   }
@@ -571,60 +860,74 @@ function formatDateLong(dateStr) {
   return d.toLocaleDateString('en-AU', {weekday:'short',day:'numeric',month:'short',year:'2-digit'});
 }
 
+function buildPqCard(p) {
+  const n = String(p.num).padStart(2,'0');
+  const caption = p.caption || '';
+  const hashtags = p.hashtags || '';
+  const prompt = p.image_prompt || p.prompt || '';
+  const platform = getPlatforms(p.num).join(' + ');
+  const slot = getDaySlot(p.date);
+  const dateLong = formatDateLong(p.date);
+  const isScheduled = localStorage.getItem('esoSched_'+p.num) === '1';
+  const graphic = hasGraphic(p.num);
+  const fullCaption = caption + (hashtags ? '\n\n' + hashtags : '');
+  return `<div class="pq-card${isScheduled?' scheduled':''}" id="pqcard-${p.num}"
+    data-caption="${encData(fullCaption)}" data-prompt="${encData(prompt)}">
+    <div class="pq-top">
+      <span class="pq-num">#${n}</span>
+      <span class="pq-title">${enc(p.title)}</span>
+      <span class="pq-date">${dateLong}</span>
+      ${slot ? `<span class="pq-slot">${slot}</span>` : ''}
+      <span class="pq-plat">${enc(platform)}</span>
+      ${!graphic ? `<span class="pq-missing-badge">NO GRAPHIC</span>` : ''}
+    </div>
+    <div class="pq-body">
+      <div class="pq-col">
+        <div class="pq-col-label">Final Caption</div>
+        <div class="pq-caption-text">${enc(caption)}</div>
+        ${hashtags ? `<div class="pq-hashtags">${enc(hashtags)}</div>` : ''}
+      </div>
+      <div class="pq-col">
+        <div class="pq-col-label">Canva Image Prompt</div>
+        <div class="pq-prompt-text">${enc(prompt)}</div>
+      </div>
+    </div>
+    <div class="pq-actions">
+      <button class="pq-btn" onclick="pqCopy(this,'caption')">Copy Caption</button>
+      <button class="pq-btn outline" onclick="pqCopy(this,'prompt')">Copy Image Prompt</button>
+      <button class="pq-sched-btn${isScheduled?' done':''}" id="schbtn-${p.num}" onclick="toggleScheduled(${p.num})">${isScheduled?'✓ Scheduled':'Mark as Scheduled'}</button>
+    </div>
+  </div>`;
+}
+
 function buildPostingQueue() {
   const postView = document.getElementById('postingView');
   const sorted = [...allPosts].sort((a,b) => (a.date||'').localeCompare(b.date||''));
+  const next7 = sorted.filter(p => isNext7Days(p.date));
+  const missingGraphic = sorted.filter(p => !hasGraphic(p.num) && (getStatus(p.num) === 'Ready' || getStatus(p.num) === 'Scheduled'));
 
   const headerHtml = `<div class="pq-header">
     <div class="pq-header-top">
-      <h2>Weekly Posting Schedule</h2>
+      <h2>Publishing Queue</h2>
       <button class="pq-meta-btn" onclick="window.open('https://business.facebook.com','_blank')">↗ Open Meta Business Suite</button>
     </div>
     <div class="pq-week">
       ${WEEK_SCHEDULE.map(([day,type]) => `<div class="pq-day-slot"><span class="day">${day}</span><span class="type">${type}</span></div>`).join('')}
     </div>
-    <div class="pq-note">Copy caption + image prompt below, then paste into Meta Business Suite to schedule each post manually.</div>
+    <div class="pq-note">Set status to READY or SCHEDULED on each card, then use ⬇ Publish Pack to export all 4 files.</div>
   </div>`;
 
-  const cardsHtml = sorted.map(p => {
-    const n = String(p.num).padStart(2,'0');
-    const caption = p.caption || '';
-    const hashtags = p.hashtags || '';
-    const prompt = p.image_prompt || p.prompt || '';
-    const platform = getPlatform(p);
-    const slot = getDaySlot(p.date);
-    const dateLong = formatDateLong(p.date);
-    const isScheduled = localStorage.getItem('esoSched_'+p.num) === '1';
-    const fullCaption = caption + (hashtags ? '\n\n' + hashtags : '');
-    return `<div class="pq-card${isScheduled?' scheduled':''}" id="pqcard-${p.num}"
-      data-caption="${encData(fullCaption)}" data-prompt="${encData(prompt)}">
-      <div class="pq-top">
-        <span class="pq-num">#${n}</span>
-        <span class="pq-title">${enc(p.title)}</span>
-        <span class="pq-date">${dateLong}</span>
-        ${slot ? `<span class="pq-slot">${slot}</span>` : ''}
-        <span class="pq-plat">${platform}</span>
-      </div>
-      <div class="pq-body">
-        <div class="pq-col">
-          <div class="pq-col-label">Final Caption</div>
-          <div class="pq-caption-text">${enc(caption)}</div>
-          ${hashtags ? `<div class="pq-hashtags">${enc(hashtags)}</div>` : ''}
-        </div>
-        <div class="pq-col">
-          <div class="pq-col-label">Canva Image Prompt</div>
-          <div class="pq-prompt-text">${enc(prompt)}</div>
-        </div>
-      </div>
-      <div class="pq-actions">
-        <button class="pq-btn" onclick="pqCopy(this,'caption')">Copy Caption</button>
-        <button class="pq-btn outline" onclick="pqCopy(this,'prompt')">Copy Image Prompt</button>
-        <button class="pq-sched-btn${isScheduled?' done':''}" id="schbtn-${p.num}" onclick="toggleScheduled(${p.num})">${isScheduled?'✓ Scheduled':'Mark as Scheduled'}</button>
-      </div>
-    </div>`;
-  }).join('');
+  const next7Html = next7.length
+    ? `<div class="pq-section-head yellow">NEXT 7 DAYS — ${next7.length} POST${next7.length!==1?'S':''}</div><div class="pq-list" style="margin-bottom:32px">${next7.map(buildPqCard).join('')}</div>`
+    : `<div class="pq-section-head dim">NO POSTS SCHEDULED IN NEXT 7 DAYS</div>`;
 
-  postView.innerHTML = headerHtml + `<div class="pq-list">${cardsHtml}</div>`;
+  const missingHtml = missingGraphic.length
+    ? `<div class="pq-section-head red">MISSING GRAPHICS — ${missingGraphic.length} POST${missingGraphic.length!==1?'S':''} NEED ARTWORK</div><div class="pq-list" style="margin-bottom:32px">${missingGraphic.map(buildPqCard).join('')}</div>`
+    : '';
+
+  const allHtml = `<div class="pq-section-head dim" style="margin-top:12px">ALL ${sorted.length} POSTS</div><div class="pq-list">${sorted.map(buildPqCard).join('')}</div>`;
+
+  postView.innerHTML = headerHtml + next7Html + missingHtml + allHtml;
 }
 
 function pqCopy(btn, field) {
@@ -652,6 +955,84 @@ function toggleScheduled(num) {
   const btn = document.getElementById('schbtn-'+num);
   btn.textContent = !isNow ? '✓ Scheduled' : 'Mark as Scheduled';
   btn.classList.toggle('done', !isNow);
+}
+
+/* ── PLATFORMS ── */
+function getPlatforms(num) {
+  const v = localStorage.getItem('esoPlatforms_'+num);
+  return v ? JSON.parse(v) : ['Instagram'];
+}
+function setPlatform(num, plat, on) {
+  const curr = getPlatforms(num);
+  const next = on ? [...new Set([...curr, plat])] : curr.filter(p => p !== plat);
+  localStorage.setItem('esoPlatforms_'+num, JSON.stringify(next.length ? next : ['Instagram']));
+}
+function togglePlatChip(num, plat, btn) {
+  const on = btn.classList.contains('active');
+  setPlatform(num, plat, !on);
+  btn.classList.toggle('active', !on);
+}
+
+/* ── GRAPHIC STATUS ── */
+function hasGraphic(num) { return localStorage.getItem('esoGraphic_'+num) === '1'; }
+function toggleGraphic(num) {
+  const key = 'esoGraphic_'+num;
+  const now = localStorage.getItem(key) === '1';
+  if (now) localStorage.removeItem(key); else localStorage.setItem(key,'1');
+  const card = document.querySelector('.card[data-num="'+num+'"]');
+  if (card) {
+    const btn = card.querySelector('.graphic-btn');
+    if (btn) { btn.classList.toggle('done',!now); btn.textContent = !now ? '✓ Graphic Ready' : 'No Graphic'; }
+  }
+}
+
+/* ── HELPERS ── */
+function isNext7Days(dateStr) {
+  if (!dateStr) return false;
+  const now = new Date(); now.setHours(0,0,0,0);
+  const d = new Date(dateStr + 'T00:00:00');
+  const diff = (d - now) / 86400000;
+  return diff >= 0 && diff <= 7;
+}
+function makeSlug(t) { return (t||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+function imageFilename(p) { return `post-${String(p.num).padStart(2,'0')}-${makeSlug(p.title)}.jpg`; }
+
+/* ── META BUSINESS SUITE CSV ── */
+function exportMetaCSV() {
+  const posts = allPosts.filter(p => { const s=getStatus(p.num); return s==='Ready'||s==='Scheduled'; });
+  if (!posts.length) { alert('No Ready or Scheduled posts to export.\n\nMark posts as Ready or Scheduled first.'); return; }
+  const rows = ['Date,Time,Caption,Image Filename,Platforms'];
+  [...posts].sort((a,b)=>(a.date||'').localeCompare(b.date||'')).forEach(p => {
+    const caption = (p.caption||'')+(p.hashtags?'\n\n'+p.hashtags:'');
+    rows.push([csvCell(p.date||''),'09:00',csvCell(caption),csvCell(imageFilename(p)),csvCell(getPlatforms(p.num).join('+'))].join(','));
+  });
+  download('meta-bulk-upload.csv', rows.join('\n'), 'text/csv');
+}
+
+/* ── PUBLISH PACK ── */
+function exportPublishPack() {
+  const posts = allPosts.filter(p => { const s=getStatus(p.num); return s==='Ready'||s==='Scheduled'; });
+  if (!posts.length) { alert('No Ready or Scheduled posts to export.\n\nMark posts as Ready or Scheduled first.'); return; }
+  const sorted = [...posts].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  const pad = n => String(n).padStart(2,'0');
+  const capRows = ['Post,Date,Platform,Caption'];
+  sorted.forEach(p => capRows.push([csvCell(pad(p.num)),csvCell(p.date||''),csvCell(getPlatforms(p.num).join('+')),csvCell(p.caption||'')].join(',')));
+  download('captions.csv', capRows.join('\n'), 'text/csv');
+  setTimeout(() => {
+    const htRows = ['Post,Date,Hashtags'];
+    sorted.forEach(p => htRows.push([csvCell(pad(p.num)),csvCell(p.date||''),csvCell(p.hashtags||'')].join(',')));
+    download('hashtags.csv', htRows.join('\n'), 'text/csv');
+  }, 300);
+  setTimeout(() => {
+    const imgRows = ['Post,Date,Title,Image Filename,Graphic Ready'];
+    sorted.forEach(p => imgRows.push([csvCell(pad(p.num)),csvCell(p.date||''),csvCell(p.title||''),csvCell(imageFilename(p)),hasGraphic(p.num)?'YES':'NO'].join(',')));
+    download('image-filenames.csv', imgRows.join('\n'), 'text/csv');
+  }, 600);
+  setTimeout(() => {
+    const schedRows = ['Post,Date,Time,Title,Product,Platforms,Status,Graphic Ready'];
+    sorted.forEach(p => schedRows.push([csvCell(pad(p.num)),csvCell(p.date||''),'09:00',csvCell(p.title||''),csvCell(p.product||''),csvCell(getPlatforms(p.num).join('+')),csvCell(getStatus(p.num)),hasGraphic(p.num)?'YES':'NO'].join(',')));
+    download('posting-schedule.csv', schedRows.join('\n'), 'text/csv');
+  }, 900);
 }
 
 /* ── EXPORT CSV ── */
@@ -744,7 +1125,510 @@ async function loadPosts() {
   }
 }
 
+/* ── TAB SWITCHING ── */
+function setTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+  document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('v-' + tab).classList.add('active');
+  if (tab === 'calendar') {
+    const cv = document.getElementById('calendarView');
+    if (!cv.dataset.built) { buildCalendar(); cv.dataset.built = '1'; }
+  } else if (tab === 'queue') {
+    buildPostingQueue();
+  }
+}
+
+/* ── BUILDER STATE ── */
+const BDR = { module:'Gotcha', type:'problem' };
+const BDR_LAYOUT = { problem:'b', stat:'d', proof:'e', process:'a', screenshot:'d', cta:'c' };
+const BDR_PRODUCT = { Gotcha:'Gotcha', Ripple:'Ripple', Frother:'Frother', WSUP:'WSUP' };
+const BDR_ICON = { Gotcha:'◎', Ripple:'≋', Frother:'◈', WSUP:'▣' };
+
+const BDR_DEFAULTS = {
+  Gotcha:{
+    problem:{headline:'MISSED CALL? GOTCHA.',tagline:'Instant SMS reply. Lead saved.',cta:'DM "GOTCHA"',body:'Missed calls are not harmless.\n\nThey are warm leads walking out the back door.\n\nA customer calls.\nYou\'re busy.\nYou miss it.\nThey call the next business on Google.\n\nGotcha fixes that — instant text-back before they go cold.'},
+    stat:{headline:'68%',tagline:'of missed calls never call back.',cta:'DM "GOTCHA"',body:'68% of missed calls never call back.\n\nThat\'s not an inconvenience. That\'s a revenue leak.\n\nGotcha sends an instant text-back the moment you miss a call.\n\nCustomer captured. Job saved.'},
+    proof:{headline:'"Caught 3 jobs in the first week."',tagline:'— Local tradie, Melbourne',cta:'DM "GOTCHA"',body:'We set up Gotcha on a Monday.\n\nBy Friday, 3 missed calls had turned into booked jobs.\n\nNone of those customers would have called back.\n\nGotcha caught them before they went cold.'},
+    process:{headline:'NEVER MISS A LEAD.',tagline:'Auto text-back. Booking link. Done.',cta:'DM "GOTCHA"',body:'The system is simple:\n\n1. Customer calls\n2. You\'re busy — call gets missed\n3. Gotcha sends instant SMS: "Hi, sorry we missed you. Here\'s a link to book."\n4. Customer books.\n\nNo staff needed. No effort required.'},
+    screenshot:{headline:'GOTCHA IN ACTION.',tagline:'Missed call → instant reply → booked.',cta:'DM "GOTCHA"',body:'This is what Gotcha looks like on the other end.\n\nA missed call lands. An instant text goes out.\n\nThe customer replies. The booking gets made.\n\nAll before they had time to Google someone else.'},
+    cta:{headline:'STOP LEAKING LEADS.',tagline:'First fix. Works from day one.',cta:'DM "GOTCHA"',body:'If you miss calls while working, you are losing money.\n\nNot eventually. Right now.\n\nGotcha is the first thing I\'d fix.\n\nDM "GOTCHA" and I\'ll tell you exactly what to set up first.'}
+  },
+  Ripple:{
+    problem:{headline:'INVISIBLE ON GOOGLE?',tagline:'Customers can\'t find you.',cta:'DM "RIPPLE"',body:'Being good at what you do isn\'t enough if people can\'t find you.\n\nWeak Google listing.\nNo reviews.\nNo local presence.\nNo follow-up.\n\nThat\'s not a marketing problem. That\'s a visibility leak.'},
+    stat:{headline:'76%',tagline:'of local searches lead to a visit.',cta:'DM "RIPPLE"',body:'76% of people who do a local search visit a business within 24 hours.\n\nBut only if you\'re visible.\n\nRipple cleans up your local presence so customers can actually find you.'},
+    proof:{headline:'"First page on Google in 3 weeks."',tagline:'— Local business owner',cta:'DM "RIPPLE"',body:'Three weeks after starting Ripple:\n\nFirst page on Google.\nReview requests automated.\nLocal map pack showing up.\n\nNot by doing anything clever. Just fixing the boring stuff that was missing.'},
+    process:{headline:'GET FOUND. GET CALLED.',tagline:'Google. Reviews. Local visibility.',cta:'DM "RIPPLE"',body:'Ripple works through four things:\n\n1. Clean up your Google Business profile\n2. Start getting reviews consistently\n3. Keep your local listing active\n4. Follow up with leads before they go cold\n\nSimple. Boring. Works.'},
+    screenshot:{headline:'RIPPLE IN ACTION.',tagline:'Real visibility. Real leads.',cta:'DM "RIPPLE"',body:'This is what a cleaned-up local presence looks like.\n\nFirst-page Google result.\nFive-star average.\nRecent reviews.\nClear business info.\n\nThis is what Ripple builds.'},
+    cta:{headline:'GET LOCAL VISIBILITY NOW.',tagline:'Ripple fixes the boring stuff.',cta:'DM "RIPPLE"',body:'Your next customer is already Googling you.\n\nThe question is whether they\'re finding you — or finding your competitor.\n\nRipple Local Visibility Cleanup starts with a full audit of where you\'re invisible.\n\nDM "RIPPLE" and I\'ll start there.'}
+  },
+  Frother:{
+    problem:{headline:'REGULARS DISAPPEARING?',tagline:'No loyalty system. No return visits.',cta:'DM "FROTHER"',body:'New customers are expensive.\n\nRegulars are gold.\n\nIf you don\'t have a system to bring them back, you\'re starting from zero every week.\n\nThat\'s a loyalty leak — and it\'s one of the easiest to fix.'},
+    stat:{headline:'5×',tagline:'cheaper to keep a customer than find one.',cta:'DM "FROTHER"',body:'Keeping a customer costs 5 times less than finding a new one.\n\nBut most local businesses have no loyalty system at all.\n\nNo stamps.\nNo promos.\nNo reason to come back.\n\nFrother fixes that without the complexity.'},
+    proof:{headline:'"Our regulars come back twice as often."',tagline:'— Cafe owner, Brisbane',cta:'DM "FROTHER"',body:'Before Frother: loyalty cards that customers lost, forgot, or left at home.\n\nAfter Frother: digital stamps, automatic promos, regulars coming back.\n\nNo app download. No staff training. Just more repeat visits.'},
+    process:{headline:'TAP IN. STACK STAMPS. FROTH ON.',tagline:'Digital loyalty. No app needed.',cta:'DM "FROTHER"',body:'Frother works in three steps:\n\n1. Customer taps in on their phone\n2. Stamps stack automatically\n3. Reward triggers when they hit the threshold\n\nNo paper cards.\nNo app download.\nNo complicated setup.'},
+    screenshot:{headline:'FROTHER IN ACTION.',tagline:'Regulars coming back.',cta:'DM "FROTHER"',body:'This is what a Frother loyalty card looks like on the customer\'s phone.\n\nEight stamps to a free coffee.\nTwo taps to redeem.\nZero friction.\n\nThe result: regulars who actually come back.'},
+    cta:{headline:'BUILD YOUR LOYAL REGULARS.',tagline:'Start with Frother.',cta:'DM "FROTHER"',body:'Your regulars are your most valuable customers.\n\nFrother keeps them coming back more often — without discounting, without complexity, without a corporate loyalty system.\n\nDM "FROTHER" if you want to see how it works for your venue.'}
+  },
+  WSUP:{
+    problem:{headline:'EVERYTHING IN YOUR HEAD?',tagline:'No SOPs. No systems. Just chaos.',cta:'DM "WSUP"',body:'If your business can\'t run unless you explain everything, you don\'t own a business.\n\nYou own a job with witnesses.\n\nOpening procedure? In your head.\nStaff onboarding? In your head.\nComplaint handling? In your head.\n\nWSUP gets it out of your head and into a system.'},
+    stat:{headline:'80%',tagline:'of small business chaos is documentable.',cta:'DM "WSUP"',body:'80% of the questions your staff ask you every week are the same questions.\n\nThe same questions.\nEvery week.\n\nThat\'s not a staff problem. That\'s a systems problem.\n\nWSUP turns those answers into SOPs your team can actually use.'},
+    proof:{headline:'"My team knows what to do without asking me."',tagline:'— Business owner, Sydney',cta:'DM "WSUP"',body:'Six months ago, she was the instruction manual.\n\nEvery question came to her.\nEvery decision needed her.\nEvery problem required her brain.\n\nAfter WSUP: SOPs, checklists, staff guides.\n\nNow the team runs the day. She runs the business.'},
+    process:{headline:'STOP BEING THE INSTRUCTION MANUAL.',tagline:'SOPs. Checklists. Staff guides.',cta:'DM "WSUP"',body:'WSUP works in four stages:\n\n1. Brain dump — we extract everything you know\n2. Structure — we turn it into SOPs and checklists\n3. Handover — staff guides and training docs\n4. Systems — workflows and action priorities\n\nThe business stops depending on your memory.'},
+    screenshot:{headline:'WSUP IN ACTION.',tagline:'Your brain → a system.',cta:'DM "WSUP"',body:'This is what a WSUP document pack looks like.\n\nOpening and closing procedures.\nCustomer complaint script.\nStaff onboarding checklist.\nWeekly action priorities.\n\nAll of it extracted from the owner\'s head and put somewhere the team can use it.'},
+    cta:{headline:'GET YOUR BUSINESS OUT OF YOUR HEAD.',tagline:'WSUP Starter Pack from $497.',cta:'DM "WSUP"',body:'WSUP Starter Pack.\n\nFor local businesses where everything is stuck in the owner\'s head.\n\nYou get:\n• 3 core SOPs\n• 1 staff checklist\n• 1 customer response template\n• Simple handover doc\n\nFrom $497. DM "WSUP" to start.'}
+  }
+};
+
+/* ── BUILDER FUNCTIONS ── */
+function setBdrModule(mod) {
+  BDR.module = mod;
+  document.querySelectorAll('.mod-btn').forEach(b => b.classList.toggle('active', b.dataset.mod === mod));
+  const mb = document.getElementById('bdrMetaMod');
+  if (mb) mb.textContent = mod;
+  applyBdrDefaults();
+  renderBdrVariants();
+}
+
+function setBdrType(type) {
+  BDR.type = type;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.toggle('active', b.dataset.type === type));
+  const mt = document.getElementById('bdrMetaType');
+  if (mt) mt.textContent = type.toUpperCase();
+  const showStat = type === 'stat';
+  const showProof = type === 'proof';
+  const sg = document.getElementById('bdrStatGroup');
+  const pg = document.getElementById('bdrProofGroup');
+  if (sg) sg.style.display = showStat ? '' : 'none';
+  if (pg) pg.style.display = showProof ? '' : 'none';
+  applyBdrDefaults();
+  renderBdrVariants();
+}
+
+function applyBdrDefaults() {
+  const d = (BDR_DEFAULTS[BDR.module]||{})[BDR.type]||{};
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val !== undefined) el.value = val; };
+  set('bdrHeadline', d.headline);
+  set('bdrTagline', d.tagline);
+  set('bdrCta', d.cta);
+  set('bdrBody', d.body);
+  if (d.headline !== undefined) onBdrField('headline', d.headline);
+  if (d.tagline !== undefined) onBdrField('tagline', d.tagline);
+  if (d.cta !== undefined) onBdrField('cta', d.cta);
+  const card = document.getElementById('bdrPreviewCard');
+  if (card) {
+    card.dataset.product = BDR_PRODUCT[BDR.module] || 'Gotcha';
+    card.dataset.layout = BDR_LAYOUT[BDR.type] || 'b';
+    const sticker = card.querySelector('.cv-sticker');
+    const icon = card.querySelector('.cv-icon');
+    if (sticker) sticker.textContent = BDR.module;
+    if (icon) icon.textContent = BDR_ICON[BDR.module] || '◆';
+  }
+}
+
+function onBdrField(field, value) {
+  const map = { headline:'bdrPrevHeadline', tagline:'bdrPrevSubtext', cta:'bdrPrevCta' };
+  const el = document.getElementById(map[field]);
+  if (el) el.textContent = value;
+}
+
+function renderBdrVariants() {
+  const wrap = document.getElementById('bdrVariants');
+  if (!wrap) return;
+  const types = ['problem','stat','proof','process','screenshot','cta'];
+  wrap.innerHTML = types.map(t => {
+    const layout = BDR_LAYOUT[t] || 'b';
+    const product = BDR_PRODUCT[BDR.module] || 'Gotcha';
+    const active = t === BDR.type ? ' active' : '';
+    return `<div class="bdr-vthumb${active}" onclick="setBdrType('${t}')" title="${t}">
+      <div class="bdr-vthumb-inner">
+        <div class="card" data-product="${product}" data-layout="${layout}" style="width:240px;height:240px;transform:scale(0.2);transform-origin:top left;pointer-events:none">
+          <div class="card-visual" style="height:240px">
+            <div class="cv-bg"></div><div class="cv-dots"></div><div class="cv-slash"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function assembleBdrCaption() {
+  const get = id => (document.getElementById(id)||{}).value || '';
+  const body = get('bdrBody');
+  const cta = get('bdrCta');
+  const hashtags = get('bdrHashtags');
+  const website = 'https://esoes.com.au';
+  const parts = [];
+  if (body) parts.push(body);
+  if (cta) parts.push(cta);
+  if (website) parts.push(website);
+  if (hashtags) parts.push(hashtags);
+  return parts.join('\n\n');
+}
+
+function assembleBdrPrompt() {
+  const get = id => (document.getElementById(id)||{}).value || '';
+  const mod = BDR.module, type = BDR.type;
+  const hl = get('bdrHeadline'), tl = get('bdrTagline'), cta = get('bdrCta');
+  const modColours = {Gotcha:'#E63946',Ripple:'#00B4D8',Frother:'#2DC653',WSUP:'#7B2FBE'};
+  const col = modColours[mod] || '#F5C800';
+  return `Eso Es social graphic — ${mod} module, ${type} card. Style: retro comic book meets business OS. Cream background #F5F0E8, heavy black typography, thick black borders, ${mod} accent colour ${col}, Courier New monospace font. Headline: "${hl}". Subtext: "${tl}". CTA bar at bottom: "${cta}". Product sticker top right: "${mod}". Square 1080×1080px.`;
+}
+
+function copyBdrCaption(btn) {
+  const text = assembleBdrCaption();
+  navigator.clipboard.writeText(text).catch(() => {});
+  const o = btn.textContent;
+  btn.classList.add('copied');
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => { btn.textContent = o; btn.classList.remove('copied'); }, 2200);
+}
+
+function copyBdrPrompt(btn) {
+  const text = assembleBdrPrompt();
+  navigator.clipboard.writeText(text).catch(() => {});
+  const o = btn.textContent;
+  btn.classList.add('copied');
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => { btn.textContent = o; btn.classList.remove('copied'); }, 2200);
+}
+
+function exportBdrPack() {
+  const caption = assembleBdrCaption();
+  const prompt = assembleBdrPrompt();
+  const hl = (document.getElementById('bdrHeadline')||{}).value || '';
+  const rows = ['Field,Content', `Module,"${BDR.module}"`, `Card Type,"${BDR.type}"`, `Headline,"${hl.replace(/"/g,'""')}"`, `Caption,"${caption.replace(/"/g,'""')}"`, `Image Prompt,"${prompt.replace(/"/g,'""')}"`];
+  download(`bdr-${BDR.module.toLowerCase()}-${BDR.type}.csv`, rows.join('\n'), 'text/csv');
+}
+
+/* ── VARIANT GENERATION ── */
+let BDR_VARIANTS = [];
+let BDR_VAR_IDX = 0;
+
+function getBdrApiKey() { return localStorage.getItem('esoApiKey') || ''; }
+
+function saveBdrApiKey() {
+  const inp = document.getElementById('bdrApiKey');
+  if (!inp) return;
+  const key = inp.value.trim();
+  if (key.startsWith('sk-')) {
+    localStorage.setItem('esoApiKey', key);
+    document.getElementById('bdrApiKeyGroup').style.display = 'none';
+    inp.value = '';
+  }
+}
+
+function initBdrApiKey() {
+  if (!getBdrApiKey()) document.getElementById('bdrApiKeyGroup').style.display = '';
+}
+
+async function generateVariants() {
+  const key = getBdrApiKey();
+  if (!key) {
+    document.getElementById('bdrApiKeyGroup').style.display = '';
+    document.getElementById('bdrApiKey').focus();
+    return;
+  }
+  const get = id => (document.getElementById(id)||{}).value || '';
+  const headline = get('bdrHeadline');
+  const tagline  = get('bdrTagline');
+  const body     = get('bdrBody');
+  const cta      = get('bdrCta');
+
+  const btn = document.getElementById('bdrGenBtn');
+  btn.textContent = '⚡ Generating…';
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  const prompt = `You are writing social media content for Eso Es, a local business operations service in Australia. Write in a direct, no-fluff tone — punchy, confident, sometimes a bit blunt. Courier-New-era aesthetic. Module: ${BDR.module}. Card type: ${BDR.type}.
+
+Current post:
+Headline: ${headline}
+Card subtext: ${tagline}
+Body: ${body}
+CTA: ${cta}
+
+Generate 5 alternative versions covering the same topic and intent. Vary the hook, angle, or structure across versions — some punchy, some story-driven, some data-led, some direct challenge.
+
+Return ONLY a valid JSON array of exactly 5 objects. Each object must have these exact keys: "headline", "tagline", "body", "cta". No markdown, no commentary, no wrapping text.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': key,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 2400,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || 'API error ' + res.status);
+    }
+
+    const data = await res.json();
+    const raw = data.content?.[0]?.text?.trim() || '';
+    const match = raw.match(/\[[\s\S]*\]/);
+    if (!match) throw new Error('No JSON array in response:\n' + raw.slice(0, 200));
+
+    BDR_VARIANTS = JSON.parse(match[0]);
+    if (!Array.isArray(BDR_VARIANTS) || !BDR_VARIANTS.length) throw new Error('Empty variants array');
+
+    BDR_VAR_IDX = 0;
+    showVariant(0);
+    document.getElementById('bdrVarNav').classList.add('visible');
+
+    btn.classList.remove('loading');
+    btn.classList.add('done');
+    btn.textContent = `✓ ${BDR_VARIANTS.length} Variants Ready`;
+    setTimeout(() => {
+      btn.textContent = '⚡ Regenerate';
+      btn.classList.remove('done');
+      btn.disabled = false;
+    }, 2500);
+
+  } catch (err) {
+    btn.textContent = '✗ Failed — tap to retry';
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    console.error('[variants]', err.message);
+    if (String(err.message).includes('401') || String(err.message).includes('invalid x-api-key')) {
+      localStorage.removeItem('esoApiKey');
+      document.getElementById('bdrApiKeyGroup').style.display = '';
+    }
+  }
+}
+
+function showVariant(idx) {
+  const v = BDR_VARIANTS[idx];
+  if (!v) return;
+  BDR_VAR_IDX = idx;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+  set('bdrHeadline', v.headline);
+  set('bdrTagline',  v.tagline);
+  set('bdrBody',     v.body);
+  set('bdrCta',      v.cta);
+  if (v.headline) onBdrField('headline', v.headline);
+  if (v.tagline)  onBdrField('tagline',  v.tagline);
+  if (v.cta)      onBdrField('cta',      v.cta);
+  const counter = document.getElementById('bdrVarCounter');
+  if (counter) counter.textContent = `VARIANT ${idx + 1} / ${BDR_VARIANTS.length}`;
+}
+
+function cycleVariant(dir) {
+  const n = BDR_VARIANTS.length;
+  if (!n) return;
+  showVariant((BDR_VAR_IDX + dir + n) % n);
+}
+
+function saveBdrVariants() {
+  if (!BDR_VARIANTS.length) return;
+  const out = { module: BDR.module, type: BDR.type, generated: new Date().toISOString(), variants: BDR_VARIANTS };
+  download('variants.json', JSON.stringify(out, null, 2), 'application/json');
+}
+
+/* ── CAMPAIGN GENERATION ── */
+let BDR_CAMPAIGN = null;
+let BDR_CAMP_IDX = 0;
+
+const CAMP_POST_TYPES = [
+  { type:'problem', label:'① Problem', layout:'b' },
+  { type:'stat',    label:'② Stat',    layout:'d' },
+  { type:'proof',   label:'③ Proof',   layout:'e' },
+  { type:'process', label:'④ Process', layout:'a' },
+  { type:'cta',     label:'⑤ CTA',     layout:'c' }
+];
+
+async function generateCampaign() {
+  const key = getBdrApiKey();
+  if (!key) {
+    document.getElementById('bdrApiKeyGroup').style.display = '';
+    document.getElementById('bdrApiKey').focus();
+    return;
+  }
+  const topicEl = document.getElementById('bdrCampTopic');
+  const topic = topicEl ? topicEl.value.trim() : '';
+  if (!topic) {
+    if (topicEl) {
+      topicEl.style.borderLeftColor = 'var(--red,#ff2d20)';
+      topicEl.focus();
+      setTimeout(() => topicEl.style.borderLeftColor = '', 800);
+    }
+    return;
+  }
+
+  const btn = document.getElementById('bdrCampBtn');
+  btn.textContent = '◼ Generating…';
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  const prompt = `You are writing a 5-post social media campaign for Eso Es, a local business operations service in Australia. Module: ${BDR.module}. Topic: "${topic}".
+
+These 5 posts form a logical content arc (Monday–Friday):
+Post 1 — PROBLEM: Hook on the pain. Name it clearly. Agitate.
+Post 2 — STATISTIC: One compelling data point that proves the problem is costly.
+Post 3 — PROOF: A brief testimonial or real-world proof story.
+Post 4 — PROCESS: Step-by-step: exactly how the solution works.
+Post 5 — CTA: Clear offer. Low-commitment entry point. Urgency.
+
+Brand voice: direct, no-fluff, confident, a bit blunt. Australian small business audience. No corporate language.
+
+Return ONLY a valid JSON array of exactly 5 objects, each with these keys:
+headline (short ALL CAPS card headline), tagline (1 short card subtext line), body (100-150 words line-break-heavy brand voice), cta (action command e.g. DM "GOTCHA"), hashtags (8-10 hashtags space-separated), image_prompt (40-word Canva/AI graphic brief).
+
+Zero other text outside the JSON array.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': key,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 3200, messages: [{ role: 'user', content: prompt }] })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || 'API error ' + res.status);
+    }
+
+    const data = await res.json();
+    const raw = (data.content?.[0]?.text || '').trim();
+    const match = raw.match(/\[[\s\S]*\]/);
+    if (!match) throw new Error('No JSON array in response');
+    const posts = JSON.parse(match[0]);
+    if (!Array.isArray(posts) || posts.length < 5) throw new Error('Expected 5 posts');
+
+    BDR_CAMPAIGN = { topic, module: BDR.module, posts, generated: new Date().toISOString() };
+    BDR_CAMP_IDX = 0;
+
+    const nameEl = document.getElementById('bdrCampName');
+    if (nameEl) nameEl.textContent = topic.toUpperCase() + ' — CAMPAIGN';
+    renderCampStrip();
+    loadCampPost(0);
+    document.getElementById('bdrCampPosts').classList.add('visible');
+
+    btn.classList.remove('loading');
+    btn.classList.add('done');
+    btn.textContent = '✓ Campaign Ready';
+    setTimeout(() => { btn.textContent = '◼ Regenerate Campaign'; btn.classList.remove('done'); btn.disabled = false; }, 2500);
+
+  } catch (err) {
+    btn.textContent = '✗ Failed — tap to retry';
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    console.error('[campaign]', err.message);
+    if (String(err.message).includes('401')) {
+      localStorage.removeItem('esoApiKey');
+      document.getElementById('bdrApiKeyGroup').style.display = '';
+    }
+  }
+}
+
+function renderCampStrip() {
+  const strip = document.getElementById('bdrCampStrip');
+  if (!strip || !BDR_CAMPAIGN) return;
+  strip.innerHTML = CAMP_POST_TYPES.map((pt, i) =>
+    `<button class="bdr-camp-post${i === BDR_CAMP_IDX ? ' active' : ''}" onclick="loadCampPost(${i})">${pt.label}<br>${pt.type.toUpperCase()}</button>`
+  ).join('');
+}
+
+function loadCampPost(idx) {
+  if (!BDR_CAMPAIGN) return;
+  const v = BDR_CAMPAIGN.posts[idx];
+  if (!v) return;
+  BDR_CAMP_IDX = idx;
+
+  const pt = CAMP_POST_TYPES[idx];
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+  set('bdrHeadline', v.headline);
+  set('bdrTagline', v.tagline);
+  set('bdrBody', v.body);
+  set('bdrCta', v.cta);
+  set('bdrHashtags', v.hashtags);
+
+  if (v.headline) onBdrField('headline', v.headline);
+  if (v.tagline)  onBdrField('tagline',  v.tagline);
+  if (v.cta)      onBdrField('cta',      v.cta);
+
+  BDR.type = pt.type;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.toggle('active', b.dataset.type === pt.type));
+  const card = document.getElementById('bdrPreviewCard');
+  if (card) card.dataset.layout = pt.layout;
+  const mt = document.getElementById('bdrMetaType');
+  if (mt) mt.textContent = pt.type.toUpperCase();
+
+  const sg = document.getElementById('bdrStatGroup');
+  const pg = document.getElementById('bdrProofGroup');
+  if (sg) sg.style.display = pt.type === 'stat'  ? '' : 'none';
+  if (pg) pg.style.display = pt.type === 'proof' ? '' : 'none';
+
+  renderCampStrip();
+}
+
+function csvCell(s) { return '"' + String(s || '').replace(/"/g, '""') + '"'; }
+
+function exportCampCaptions() {
+  if (!BDR_CAMPAIGN) return;
+  const out = {
+    topic: BDR_CAMPAIGN.topic, module: BDR_CAMPAIGN.module, generated: BDR_CAMPAIGN.generated,
+    posts: BDR_CAMPAIGN.posts.map((p, i) => ({
+      post: i + 1, type: CAMP_POST_TYPES[i].type,
+      headline: p.headline, tagline: p.tagline, body: p.body, cta: p.cta, hashtags: p.hashtags,
+      full_caption: [p.body, p.cta, 'https://esoes.com.au', p.hashtags].filter(Boolean).join('\n\n')
+    }))
+  };
+  const slug = BDR_CAMPAIGN.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  download(slug + '-captions.json', JSON.stringify(out, null, 2), 'application/json');
+}
+
+function exportCampPrompts() {
+  if (!BDR_CAMPAIGN) return;
+  const slug = BDR_CAMPAIGN.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const out = {
+    topic: BDR_CAMPAIGN.topic, module: BDR_CAMPAIGN.module, generated: BDR_CAMPAIGN.generated,
+    images: BDR_CAMPAIGN.posts.map((p, i) => ({
+      post: i + 1, type: CAMP_POST_TYPES[i].type,
+      filename: `post-${String(i+1).padStart(2,'0')}-${slug}-${CAMP_POST_TYPES[i].type}.jpg`,
+      headline: p.headline, image_prompt: p.image_prompt
+    }))
+  };
+  download(slug + '-prompts.json', JSON.stringify(out, null, 2), 'application/json');
+}
+
+function exportCampSchedule() {
+  if (!BDR_CAMPAIGN) return;
+  const today = new Date();
+  const daysToMonday = (8 - today.getDay()) % 7 || 7;
+  const start = new Date(today);
+  start.setDate(today.getDate() + daysToMonday);
+
+  const slug = BDR_CAMPAIGN.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const rows = ['Post,Date,Time,Type,Headline,Caption,Image,Hashtags,Module'];
+  BDR_CAMPAIGN.posts.forEach((p, i) => {
+    const d = new Date(start);
+    d.setDate(start.getDate() + i);
+    const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const caption = [p.body, p.cta, 'https://esoes.com.au'].filter(Boolean).join('\n\n');
+    const fname = `post-${String(i+1).padStart(2,'0')}-${slug}-${CAMP_POST_TYPES[i].type}.jpg`;
+    rows.push([i+1, ds, '09:00', CAMP_POST_TYPES[i].type, csvCell(p.headline), csvCell(caption), fname, csvCell(p.hashtags), BDR_CAMPAIGN.module].join(','));
+  });
+  download(slug + '-meta_schedule.csv', rows.join('\n'), 'text/csv');
+}
+
 loadPosts();
+applyBdrDefaults();
+renderBdrVariants();
+initBdrApiKey();
 </script>
 </body>
 </html>
